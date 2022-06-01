@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.proyectopdm">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo"
@@ -10,15 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPDM.NoActionBar">
         <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuOpciones2Activity"
             android:exported="false"
             android:label="@string/title_activity_menu_opciones2"
             android:theme="@style/Theme.ProyectoPDM.NoActionBar.NoActionBar" />
-
-            <activity
-                android:name=".ActActivity"
-                android:exported="false"/>          
-            <activity 
+        <activity
+            android:name=".ActActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity_docente_Nav"
             android:exported="false" />
         <activity

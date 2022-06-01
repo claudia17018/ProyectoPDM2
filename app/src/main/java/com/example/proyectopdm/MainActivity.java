@@ -5,6 +5,7 @@ import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -12,11 +13,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectopdm.bd.BD;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInApi;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //Declaracion de variables
+    GoogleSignIn googleSignIn;
+    GoogleSignInClient gsc;
+    //GoogleSignInOptions gso;
     EditText user,pass;
     Button btnEntrar,btnRegistar;
+    SignInButton btnGoogle;
     BD db;
     DT dt;
     @Override
@@ -35,11 +48,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEntrar.setOnClickListener(this);
         //btnRegistar.setOnClickListener(this);
 
+//Login con Google
+        btnGoogle= findViewById(R.id.btnLoginGoogle);
+        btnGoogle.setOnClickListener(this);
+
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Build a GoogleSignInClient with the options specified by gso.
+        gsc= GoogleSignIn.getClient(this, gso);
+
         db.abrir();
         db.llenarDB();
         db.cerrar();
-    }
 
+        // Check for existing Google Sign In account, if the user is already signed in
+        // the GoogleSignInAccount will be non-null.
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct!=null){
+            navigateToSecondActivity();
+        }
+    }
+    private void navigateToSecondActivity() {
+        finish();
+        Intent i9=new Intent(MainActivity.this,MenuOpciones2Activity.class);
+        startActivity(i9);
+    }
 
     @Override
     public void onClick(View view) {
@@ -79,10 +116,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            /*case R.id.btnRegistrarse:
-                Intent i=new Intent(MainActivity.this,RegistrarUsuarioActivity.class);
-                startActivity(i);
-                break;*/
+            case R.id.btnLoginGoogle:
+
+                signIn();
+                break;
+        }
+    }
+    private void signIn(){
+        Intent signInIntent= gsc.getSignInIntent();
+        startActivityForResult(signInIntent, 1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000){
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+            try {
+                task.getResult(ApiException.class);
+
+            } catch (ApiException e) {
+                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            navigateToSecondActivity();
+            // Signed in successfully, show authenticated UI.
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Toast.makeText(getApplicationContext(), "Something went wrong" + + e.getStatusCode(), Toast.LENGTH_SHORT).show();
         }
     }
 }

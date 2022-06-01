@@ -53,4 +53,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation "androidx.cardview:cardview:1.0.0"
+
+    //Google
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
 }
