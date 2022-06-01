@@ -138,7 +138,7 @@ public class EstudiantesFragment extends Fragment {
         });
 
     }
-    private ArrayList<Estudiante> consultarListaEstudiantes(){
+    public ArrayList<Estudiante> consultarListaEstudiantes(){
         sqLiteDatabase = dataBaseHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM ESTUDIANTE", null);
         ArrayList<Estudiante> listadoEstudiante = new ArrayList<>();

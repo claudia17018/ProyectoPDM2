@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectopdm.bd.BD;
+import com.example.proyectopdm.docente.Estudiante;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInApi;
@@ -74,8 +75,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void navigateToSecondActivity() {
         finish();
-        Intent i9=new Intent(MainActivity.this,MenuOpciones2Activity.class);
-        startActivity(i9);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        String personEmail,personName;
+        if(acct!=null){
+            personName = acct.getDisplayName();
+            personEmail = acct.getEmail();
+            db.abrir();
+            Estudiante est = db.getEmail(personEmail);
+            System.out.println(est.getIdUsuario());
+            dt=new DT();
+            dt.setIdU(est.getIdUsuario());
+            db.insertarDT(dt);
+
+            Intent i3=new Intent(MainActivity.this,MenuOpcionesActivity.class);
+            i3.putExtra("id",est.getIdUsuario());
+            startActivity(i3);
+            db.cerrar();
+        }
     }
 
     @Override
@@ -108,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         i9.putExtra("id",us.getId());
                         startActivity(i9);
                     }
-
                     user.setText("");
                     pass.setText("");
                 db.cerrar();
@@ -117,8 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.btnLoginGoogle:
-
                 signIn();
+
                 break;
         }
     }

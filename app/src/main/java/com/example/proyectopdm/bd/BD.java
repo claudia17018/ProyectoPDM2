@@ -17,6 +17,7 @@ import com.example.proyectopdm.Carrera;
 
 import com.example.proyectopdm.DT;
 import com.example.proyectopdm.DetalleServicio;
+import com.example.proyectopdm.EstudiantesFragment;
 import com.example.proyectopdm.Proyecto;
 import com.example.proyectopdm.Record;
 import com.example.proyectopdm.ResumenServicio;
@@ -40,6 +41,7 @@ public class BD {
     private final Context context;
     private  String recibirMensaje ="";
     ArrayList<Usuario> lista;
+    ArrayList<Estudiante> listaEstudiante;
     ArrayList<Docente> listaDocentes = new ArrayList<>();
     private SQLiteDatabase db;
     private DataBaseHelper DBHelper;
@@ -328,7 +330,7 @@ public class BD {
     public void llenarDB(){
 
         /*************Usuario*********************/
-        final String[] VUnombre = {"Admin","Daniel","Roxana","Luis"};
+        final String[] VUnombre = {"Admin","rox98lopez@gmail.com","grupo06tpi@gmail.com","ml17018@ues.edu.sv"};
         final String[] VUclave ={"1","1","1","1"};
 
         /************Carrera*********************/
@@ -357,15 +359,15 @@ public class BD {
 
 
         /*************Estudiante ****************/
-        final int[] eIdUsuario={3,4};
-        final String[] eCarne={"ML17025","LP13022"};
-        final String[] eNom={"Roxana","Luis"};
-        final String[] eApe={"Mendoza","Flores"};
-        final String[] eEma={"ml17025@ues.edu.sv","lp13022@ues.edu.sv"};
-        final String[] eTel={"62894223","68457912"};
-        final String[] eNit={"95565659","4638484"};
-        final String[] eDui={"015565659","094638484"};
-        final String[] eDo={"San Salvador","Apopa"};
+        final int[] eIdUsuario={1,2,3,4};
+        final String[] eCarne={"ML17010","ML17025","ML17018","AG17001"};
+        final String[] eNom={"Claudia","Roxana","Luis","Maynor"};
+        final String[] eApe={"Mendoza","Lopez","Flores","Abrego"};
+        final String[] eEma={"ml17018@clases.edu.sv","rox98lopez@gmail.com","grupo06tpi@gmail.com","ml17018@ues.edu.sv"};
+        final String[] eTel={"72562867","61871818","62894223","68457912"};
+        final String[] eNit={"12345678","27772662","95565659","4638484"};
+        final String[] eDui={"015565659","094638484","345645690","22327891"};
+        final String[] eDo={"Cojutepeque","San Rafael Cedros","San Salvador","Apopa"};
 
         /*************AccesoUsuario ****************/
         final int[] auIdop={1,2,3,3};
@@ -470,7 +472,7 @@ public class BD {
                 insertar(doce);
             }
             Estudiante estu = new Estudiante();
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 4; i++) {
 
                 estu.setIdUsuario(eIdUsuario[i]);
                 estu.setNombreEstudiante(eNom[i]);
@@ -557,14 +559,7 @@ public class BD {
 
     /*
 
-
-
     Metodos utilizados para inicio de secion
-
-
-
-
-
 
     */
     //Permite ingresar un nuevo usuario siempre y no haya ningun otro con dicho nombre de usuario
@@ -634,6 +629,33 @@ public class BD {
         return null;
 
     }
+
+    //Consultar estudiante para Google
+    public ArrayList<Estudiante> consultarListaEstudiantes(){
+        Cursor cursor = db.rawQuery("SELECT * FROM ESTUDIANTE", null);
+        ArrayList<Estudiante> listadoEstudiante = new ArrayList<>();
+        listadoEstudiante.clear();
+        if(cursor.moveToFirst()){
+            do{
+                listadoEstudiante.add(new Estudiante(cursor.getString(0), cursor.getInt(1),
+                        cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5), cursor.getString(6),
+                        cursor.getString(7),cursor.getString(8)));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return listadoEstudiante;
+    }
+
+    public Estudiante getEmail(String email){
+        listaEstudiante=consultarListaEstudiantes();
+        for (Estudiante estudiante:listaEstudiante) {
+            if(estudiante.getEmailEstudinate().equals(email)){
+                return estudiante;
+            }
+        }
+        return null;
+    }
+
     public Usuario getUsuarioId(int id){
         lista=selectUsuarios();
         for (Usuario usu:lista) {

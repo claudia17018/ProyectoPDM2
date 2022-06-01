@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.proyectopdm.bd.BD;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -21,7 +23,7 @@ import com.example.proyectopdm.databinding.ActivityMenuOpciones2Binding;
 public class MenuOpciones2Activity extends AppCompatActivity {
     BD db;
     DT dt;
-    int id=0;
+    int id = 0;
     Usuario u;
     TextView usuario;
     private AppBarConfiguration mAppBarConfiguration;
@@ -30,7 +32,7 @@ public class MenuOpciones2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db =new BD(this);
+        db = new BD(this);
 
         binding = ActivityMenuOpciones2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -48,7 +50,7 @@ public class MenuOpciones2Activity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_inicio, R.id.nav_miperfil, R.id.nav_proyectos,R.id.estudiantesFragment,R.id.proyectosMainFragment,R.id.miServicioSocialFragment, R.id.recordAcademicoFragment,R.id.cerrarSesionFragment,R.id.docentesFragment,R.id.carrerasFragment,R.id.modalidadesFragment,R.id.proyectosAsignadosFragment,R.id.resumenServicioSocialFragment)
+                R.id.nav_inicio, R.id.nav_miperfil, R.id.nav_proyectos, R.id.estudiantesFragment, R.id.proyectosMainFragment, R.id.miServicioSocialFragment, R.id.recordAcademicoFragment, R.id.cerrarSesionFragment, R.id.docentesFragment, R.id.carrerasFragment, R.id.modalidadesFragment, R.id.proyectosAsignadosFragment, R.id.resumenServicioSocialFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_opciones2);
@@ -70,17 +72,26 @@ public class MenuOpciones2Activity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    public void recuperarNombre(){
-        usuario=(TextView)findViewById(R.id.usuarioIngresado2);
 
+    public void recuperarNombre() {
+        usuario = (TextView) findViewById(R.id.usuarioIngresado2);
         String nom;
-        dt=new DT();
+        dt = new DT();
         db.abrir();
-        dt=db.activo();
-
+        dt = db.activo();
         usuario.setText(db.obtenerNombreEstudiante(dt.getIdU()));
         db.cerrar();
+        if(usuario.getText().toString().isEmpty()){
+            recuperarCuentaGoogle();
+        }
+    }
 
-
+    void recuperarCuentaGoogle() {
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            usuario.setText(personName);
+        }
     }
 }

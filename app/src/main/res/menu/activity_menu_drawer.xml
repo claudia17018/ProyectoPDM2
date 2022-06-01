@@ -52,9 +52,13 @@
             android:id="@+id/proyectosAsignadosFragment"
             android:icon="@drawable/ic_baseline_asignados"
             android:title="@string/menu_proyectosAsigandos" />-->
-        <item
+        <!--<item
             android:id="@+id/cerrarSesionFragment"
             android:icon="@drawable/ic_baseline_salir"
-            android:title="@string/menu_cerrarsesion" />
+            android:title="@string/menu_cerrarsesion" />-->
+        <item
+            android:id="@+id/secondActivity"
+            android:icon="@drawable/ic_baseline_salir"
+            android:title= "Cerrar sesion" />
     </group>
 </menu>

@@ -263,4 +263,9 @@
         android:name="com.example.proyectopdm.fragmentR.EditarDetalleFragment"
         android:label="@string/menu_editar_detalle_servicio"
         tools:layout="@layout/fragment_editar_detalle" />
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.example.proyectopdm.SecondActivity"
+        android:label="activity_second"
+        tools:layout="@layout/activity_second" />
 </navigation>
