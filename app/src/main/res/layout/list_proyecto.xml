@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardListProyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/card"
+        app:cardCornerRadius="8dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/containerProyecto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="horizontal">
+                <!-- Title, secondary and supporting text -->
+
+
+                <TextView
+                    android:id="@+id/nomPro"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="title"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/menuMore"
+                    android:layout_width="24dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_baseline_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Modalidad            " />
+                <TextView
+                    android:id="@+id/modalidadPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="supporting_text" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categoria              " />
+                <TextView
+                    android:id="@+id/categoriaPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  " />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lugar                     " />
+                <TextView
+                    android:id="@+id/lugarPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="supporting_text" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tutor                      " />
+                <TextView
+                    android:id="@+id/tutorPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="supporting_text" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+
+                    android:text="Descripcion: " />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+
+                <TextView
+                    android:id="@+id/descripcionPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="supporting_text" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estudiantes requeridos             " />
+                <TextView
+                    android:id="@+id/estuPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  " />
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Horas propuestas                       " />
+                <TextView
+                    android:id="@+id/horasPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  " />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estado                                           " />
+                <TextView
+                    android:id="@+id/estadoPro"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:text="  " />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

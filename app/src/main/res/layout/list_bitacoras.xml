@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardListBitacora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/card"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:id="@+id/containerBitacora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="horizontal">
+                <!-- Title, secondary and supporting text -->
+
+                <TextView
+                    android:id="@+id/bitLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bitacora"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bitNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="title"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/LabelCiclo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="Ciclo"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/bitacoraCiclo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="ciclo"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/menuMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_gravity="left"
+                    android:gravity="right"
+
+                    android:src="@drawable/ic_baseline_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="16sp">
+
+                <TextView
+                    android:id="@+id/bitacoraMes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="supporting_text" />
+
+                <TextView
+                    android:id="@+id/anioBitacora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="anio" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

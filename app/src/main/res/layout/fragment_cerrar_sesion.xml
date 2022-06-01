@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CerrarSesionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="150dp"
+                android:layout_weight="0.9"
+                android:gravity="center"
+
+                android:textSize="20dp"
+                android:text="¿SALIR?"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:layout_weight="0.9"
+                android:gravity="center"
+
+                android:text="¿ESTÁ SEGURO QUE DESEA SALIR?"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            >
+            <Button
+                android:id="@+id/btncancelar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:background="#E45E5E"
+                android:layout_margin="10dp"
+                android:textStyle="normal"
+                android:textSize="16dp"
+
+                android:text="CANCELAR" />
+            <Button
+                android:id="@+id/btncerrar"
+                android:shadowRadius="@integer/material_motion_duration_long_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:background="#E45E5E"
+                android:layout_margin="10dp"
+
+                android:textStyle="normal"
+
+                android:textSize="16dp"
+                android:text="ACEPTAR" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

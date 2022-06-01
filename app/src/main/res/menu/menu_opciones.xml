@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/editarID"
+        android:icon="@drawable/ic_edit_blanco"
+        android:title="@string/navBarEditar"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/eliminarID"
+        android:icon="@drawable/ic_delete_blnaco"
+        android:title="@string/navBarEliminar"
+        app:showAsAction="never"/>
+
+
+
+</menu>

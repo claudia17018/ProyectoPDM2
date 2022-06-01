@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/carrerasFragment2">
+
+    <fragment
+        android:id="@+id/carrerasFragment2"
+        android:name="com.example.proyectopdm.CarrerasFragment"
+        android:label="fragment_carreras"
+        tools:layout="@layout/fragment_carreras" >
+        <action
+            android:id="@+id/action_carrerasFragment2_to_fragment_docente_crear"
+            app:destination="@id/fragment_docente_crear" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_docente_crear"
+        android:name="com.example.proyectopdm.fragment_docente_crear"
+        android:label="fragment_docente_crear"
+        tools:layout="@layout/fragment_docente_crear" />
+</navigation>

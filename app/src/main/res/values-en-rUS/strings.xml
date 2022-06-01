@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProyectPDM</string>
+    <string name="title_activity_menu_opciones">MenuOptionsActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_inicio">Start</string>
+    <string name="menu_miperfil">My profile</string>
+    <string name="menu_proyectos">Projects</string>
+    <string name="menu_recordacademico">Academic Record</string>
+    <string name="menu_crear_actividad">New Activity</string>
+    <string name="menu_estudiantes">Students</string>
+    <string name="menu_docentes">Teachers</string>
+    <string name="menu_editar_bitacora">Edit Binnacle</string>
+    <string name="menu_listado_actividad">Activities</string>
+    <string name="menu_resumen">Social Service Summary</string>
+    <string name="menu_editar_actividad">Edit Activity</string>
+    <string name="menu_detalle_act">Activity Detail</string>
+    <string name="menu_listadoActividades">Activities</string>
+    <string name="menu_modalidades">Modalities</string>
+    <string name="menu_miServicioSocial">My Community Service</string>
+    <string name="menu_cerrarsesion">Sign Off</string>
+    <string name="menu_carreras">Careers</string>
+    <string name="menu_proyectosAsigandos">Assigned Projects</string>
+    <string name="menu_agregar_bitacora">New Binnacle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="controlServcioSocial">Social Service Control</string>
+
+    <string name="nombreDocente">Name</string>
+    <string name="correoDocente">Email</string>
+    <string name="apellidoDocente">Surnames</string>
+    <string name="duiDocente">DUI</string>
+    <string name="telefonoDocente">Phone</string>
+    <string name="listApellidoDocente">Surnames</string>
+    <string name="btnAgregarDocente">Add</string>
+    <string name="titleDocente">Delete Teacher</string>
+    <string name="messageDocente">Are you sure you want to delete the teacher</string>
+
+    <string name="btnactionbareliminar">Delete</string>
+    <string name="btnactionbareditar">Edit</string>
+    <string name="nitDocente">NIT</string>
+
+    <!-- Para Bitacora-->
+    <string name="btnCrearBitacora">To Create</string>
+    <string name="cicloBitacora">Select a Cycle</string>
+    <string name="mesBitacora">Select a Month</string>
+    <string name="anioBitacora">Year</string>
+    <string name="camposVacios">Empty Fields</string>
+    <string name="bitacora">Binnacle</string>
+
+    <!-- Para AlertDialog EliminarBitacora-->
+    <string name="titleBitacora">Delete</string>
+    <string name="messageBitacora">Are you sure you want to delete the record?</string>
+    <string name="buttonNegacion">CANCEL</string>
+    <string name="buttonConfirm">DELETE</string>
+    <string name="title_activity_menu_opciones2">MenuOptions2Activity</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <!-- Actividad adaptador -->
+    <string name="actividad">Activity</string>
+    <string name="FechaAct">Date</string>
+    <string name="title_activity_item_detail_host">ItemDetailHostActivity</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="name_activity">Activity</string>
+    <string name="date_activity">Activity Date</string>
+    <string name="num_hours_activity">Number of Hours of Activity</string>
+    <string name="description_activity">Description of the activity</string>
+    <string name="seleccionFecha">Select a Date</string>
+
+    <string name="carnetEstudiante">License</string>
+    <string name="nombreEstudiante">Name</string>
+    <string name="apellidoEstudiante">Surnames</string>
+    <string name="telefonoEstudiante">Phone</string>
+    <string name="emailEstudiante">Email</string>
+    <string name="duiEstudiante">DUI</string>
+    <string name="domicilioEstudiante">Home</string>
+    <string name="nitEstudiante">NIT</string>
+    <string name="BOTONAgregarAlumno">Add</string>
+    <string name="nombreUsuario">User</string>
+    <string name="passUsuario">Password</string>
+    <string name="listEstudianteNombre">Name</string>
+    <string name="listEstudianteApellido">Surnames</string>
+    <string name="listEstudianteCarnet">License</string>
+    <string name="listEstudianteCorreo">Emai</string>
+
+
+    <string name="areaNom">Name</string>
+    <string name="areaDes">Description</string>
+    <string name="areabtnA">Add</string>
+    <string name="areaTitulo">Area</string>
+    <!-- DetalleResumenServicioSocial -->
+    <string name="estado">Service Status</string>
+    <string name="horasAs">No. of Assigned Hours</string>
+    <string name="monto">Amount(Market price</string>
+    <string name="benDirectos">Number of Direct Beneficiaries</string>
+    <string name="benInirectos">Number of Indirect Beneficiaries</string>
+    <string name="observacionesD">Observations </string>
+    <string name="btnCrearDetalle">To Register </string>
+    <string name="actualizar_actividad">To Update</string>
+    <string name="navBarEditar">Edit</string>
+    <string name="navBarEliminar">Delete</string>
+    <string name="btnEditarBitacora">To Update</string>
+    <string name="editCarrera">Edit Career</string>
+
+    <string name="titleArea">Area</string>
+    <string name="creArea">Create Area</string>
+    <string name="editArea">Edit Area</string>
+    <string name="cd">Create Teacher</string>
+
+    <string name="ce">Create Student</string>
+    <string name="ee">Edit Student</string>
+    <string name="cc">Create Career</string>
+    <string name="ea">Edit Area</string>
+    <string name="dss">Social Service Detail</string>
+    <string name="cr">Create Record</string>
+    <string name="er">Edit Record</string>
+    <string name="ed">Edit Teacher</string>
+    <string name="md">Modify Teacher</string>
+    <string name="me">Modify student</string>
+    <string name="p">Projects</string>
+    <string name="cp">Create Projects</string>
+    <string name="eee">Edit Student</string>
+    <string name="ep">Edit project</string>
+    <string name="cssNom">Social Service Control</string>
+    <string name="menu_editar_detalle_servicio">Editar Detalle Servicio</string>
+    <string name="fechaApertura">Fecha de apertura</string>
+    <string name="carnetEstudianteAp">Carnet</string>
+
+</resources>

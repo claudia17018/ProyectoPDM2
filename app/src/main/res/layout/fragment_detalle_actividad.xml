@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentR.DetalleActividadFragment">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:cardCornerRadius="16dp"
+          app:cardBackgroundColor="@color/card"
+          android:layout_margin="16dp"
+          android:layout_marginStart="16dp"
+          android:padding="4dp"
+          android:layout_marginEnd="16dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.047">
+
+         <TableLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="8dp"
+             android:stretchColumns="1">
+
+            <TableRow>
+               <TextView
+                   android:layout_margin="16dp"
+                   android:text="Actividad"
+                   android:textSize="16dp"
+                   android:padding="3dip"
+                   android:textStyle="bold" />
+               <TextView/>
+
+                <ImageView
+                android:id="@+id/menuOpcionesActivity"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="right"
+                android:src="@drawable/ic_baseline_more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            </TableRow>
+            <TableRow>
+
+               <TextView
+                   android:text="Numero"
+                   android:padding="3dip"
+                   android:layout_marginStart="16dp"
+                   />
+               <TextView
+                   android:id="@+id/textView"
+                   android:padding="3dip"
+                   android:text="TextView" />
+            </TableRow>
+
+            <TableRow>
+
+               <TextView
+                   android:id="@+id/labelFecha"
+                   android:text="Fecha de actividad"
+                   android:padding="3dip"
+                   android:layout_marginStart="16dp"
+                   />
+               <TextView
+                   android:id="@+id/textFecha"
+                   android:padding="3dip"
+                   android:text="TextView" />
+
+            </TableRow>
+
+            <TableRow>
+
+               <TextView
+                   android:id="@+id/labelNombre"
+                   android:text="Nombre de actividad"
+                   android:padding="3dip"
+                   android:layout_marginStart="16dp"
+                   />
+               <TextView
+                   android:id="@+id/textView2"
+                   android:padding="3dip"
+                   android:text="TextView" />
+
+            </TableRow>
+
+            <TableRow>
+
+               <TextView
+                   android:id="@+id/labelDescription"
+                   android:text="Descripcion"
+                   android:padding="3dip"
+                   android:layout_marginStart="16dp"
+                   />
+               <TextView
+                   android:id="@+id/textDescription"
+                   android:minLines="1"
+                   android:maxLines="5"
+                   android:padding="3dip"
+                   android:text="TextView" />
+
+            </TableRow>
+
+            <TableRow>
+
+               <TextView
+                   android:id="@+id/labelhoras"
+                   android:text="Horas"
+                   android:padding="3dip"
+                   android:layout_marginStart="16dp"
+                   />
+               <TextView
+                   android:id="@+id/texthoras"
+                   android:padding="3dip"
+                   android:text="TextView" />
+
+            </TableRow>
+
+         </TableLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

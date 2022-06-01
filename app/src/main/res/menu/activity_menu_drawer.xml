@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_baseline_inicio"
+            android:title="@string/menu_inicio" />
+       <!-- <item
+            android:id="@+id/nav_miperfil"
+            android:icon="@drawable/ic_baseline_user"
+            android:title="@string/menu_miperfil" />
+        <item
+            android:id="@+id/nav_proyectos"
+            android:icon="@drawable/ic_baseline_folder"
+            android:title="@string/menu_proyectos" />-->
+        <item
+            android:id="@+id/proyectosMainFragment"
+            android:icon="@drawable/ic_baseline_folder"
+            android:title="@string/menu_proyectos" />
+        <item
+            android:id="@+id/estudiantesFragment"
+            android:icon="@drawable/ic_estudiantes"
+            android:title="@string/menu_estudiantes" />
+        <item
+            android:id="@+id/docentesFragment"
+            android:icon="@drawable/ic_baseline_docentes"
+            android:title="@string/menu_docentes" />
+        <!--<item
+            android:id="@+id/modalidadesFragment"
+            android:icon="@drawable/ic_baseline_modalidad"
+            android:title="@string/menu_modalidades" />-->
+        <item
+            android:id="@+id/miServicioSocialFragment"
+            android:icon="@drawable/ic_baseline_miservicio"
+            android:title="@string/menu_miServicioSocial" />
+        <item
+            android:id="@+id/carrerasFragment"
+            android:icon="@drawable/ic_baseline_resumen"
+            android:title="@string/menu_carreras" />
+        <item
+            android:id="@+id/recordAcademicoFragment"
+            android:icon="@drawable/ic_baseline_recordacademico"
+            android:title="@string/menu_recordacademico" />
+        <item
+            android:id="@+id/resumenServicioSocialFragment"
+            android:icon="@drawable/ic_resumen"
+            android:title="@string/menu_resumen" />
+        <!--<item
+            android:id="@+id/proyectosAsignadosFragment"
+            android:icon="@drawable/ic_baseline_asignados"
+            android:title="@string/menu_proyectosAsigandos" />-->
+        <item
+            android:id="@+id/cerrarSesionFragment"
+            android:icon="@drawable/ic_baseline_salir"
+            android:title="@string/menu_cerrarsesion" />
+    </group>
+</menu>

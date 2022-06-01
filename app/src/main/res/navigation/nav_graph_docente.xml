@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_docente"
+    app:startDestination="@id/docentesFragment2">
+
+    <fragment
+        android:id="@+id/docentesFragment2"
+        android:name="com.example.proyectopdm.DocentesFragment"
+        android:label="fragment_docentes"
+        tools:layout="@layout/fragment_docentes" >
+        <action
+            android:id="@+id/action_docentesFragment2_to_fragment_docente_crear2"
+            app:destination="@id/fragment_docente_crear2" />
+        <action
+            android:id="@+id/action_docentesFragment2_to_fragment_editar_docente"
+            app:destination="@id/fragment_editar_docente2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_docente_crear2"
+        android:name="com.example.proyectopdm.fragment_docente_crear"
+        android:label="fragment_docente_crear"
+        tools:layout="@layout/fragment_docente_crear" />
+    <fragment
+        android:id="@+id/fragment_editar_docente2"
+        android:name="com.example.proyectopdm.Fragment_editar_docente"
+        android:label="fragment_editar_docente"
+        tools:layout="@layout/fragment_editar_docente" />
+</navigation>

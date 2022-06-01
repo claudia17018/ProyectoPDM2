@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_baseline_inicio"
+            android:title="@string/menu_inicio" />
+        <item
+            android:id="@+id/proyectosMainFragment"
+            android:icon="@drawable/ic_baseline_folder"
+            android:title="@string/menu_proyectos" />
+        <item
+            android:id="@+id/miServicioSocialFragment"
+            android:icon="@drawable/ic_baseline_miservicio"
+            android:title="@string/menu_miServicioSocial" />
+
+        <item
+            android:id="@+id/recordAcademicoFragment"
+            android:icon="@drawable/ic_baseline_recordacademico"
+            android:title="@string/menu_recordacademico" />
+        <item
+            android:id="@+id/resumenServicioSocialFragment"
+            android:icon="@drawable/ic_resumen"
+            android:title="@string/menu_resumen" />
+
+        <item
+            android:id="@+id/cerrarSesionFragment"
+            android:icon="@drawable/ic_baseline_salir"
+            android:title="@string/menu_cerrarsesion" />
+    </group>
+</menu>

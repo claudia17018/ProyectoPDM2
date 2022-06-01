@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/miServicioSocialFragment2"
+    android:id="@+id/nav_graph_miserviciosocial">
+    <fragment
+        android:id="@+id/miServicioSocialFragment2"
+        android:name="com.example.proyectopdm.MiServicioSocialFragment"
+        android:label="fragment_mi_servicio_social"
+        tools:layout="@layout/fragment_mi_servicio_social" >
+        <action
+            android:id="@+id/action_miServicioSocialFragment2_to_agregarBitacoraFragment2"
+            app:destination="@id/agregarBitacoraFragment2" />
+        <action
+            android:id="@+id/action_miServicioSocialFragment2_to_actividadCrearFragment"
+            app:destination="@id/actividadCrearFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarBitacoraFragment2"
+        android:name="com.example.proyectopdm.AgregarBitacoraFragment"
+        android:label="@string/menu_agregar_bitacora"
+        tools:layout="@layout/fragment_agregar_bitacora" />
+
+    <fragment
+        android:id="@+id/actividadCrearFragment2"
+        android:name="com.example.proyectopdm.ActividadCrearFragment"
+        android:label="fragment_actividad_crear"
+        tools:layout="@layout/fragment_actividad_crear" />
+</navigation>

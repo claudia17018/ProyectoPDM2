@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Inicio.InicioFragment"
+    android:layout_marginTop="50dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardInicioPe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardBackgroundColor="@color/card"
+                app:cardCornerRadius="8dp"
+                android:layout_weight="0.5"
+                tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/irAPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+
+                android:layout_gravity="left"
+                android:layout_margin="30dp"
+                android:src="@drawable/ic_baseline_user" />
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardInicioP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                 android:layout_weight="0.5"
+                app:cardBackgroundColor="@color/card"
+                app:cardCornerRadius="8dp"
+                tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/irAProyectos"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="left"
+                android:layout_margin="30dp"
+                android:src="@drawable/ic_baseline_folder" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardInicioRe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="8dp"
+            android:layout_weight="0.5"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/irARecord"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+
+                android:layout_gravity="left"
+                android:layout_margin="30dp"
+                android:src="@drawable/ic_baseline_recordacademico" />
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardInicioM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="0.5"
+            app:cardBackgroundColor="@color/card"
+            app:cardCornerRadius="8dp"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/irAMi"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="left"
+                android:layout_margin="30dp"
+                android:src="@drawable/ic_baseline_miservicio" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</LinearLayout>

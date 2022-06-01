@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.example.proyectopdm.ui.Inicio.InicioFragment"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/nav_miperfil"
+        android:name="com.example.proyectopdm.ui.miperfil.MiPerfilFragment"
+        android:label="@string/menu_miperfil"
+        tools:layout="@layout/fragment_miperfil" />
+
+    <fragment
+        android:id="@+id/nav_proyectos"
+        android:name="com.example.proyectopdm.ui.proyectos.ProyectosFragment"
+        android:label="@string/menu_proyectos"
+        tools:layout="@layout/fragment_proyectos" />
+    <fragment
+        android:id="@+id/recordAcademicoFragment"
+        android:name="com.example.proyectopdm.RecordAcademicoFragment"
+        android:label="@string/menu_recordacademico"
+        tools:layout="@layout/fragment_record_academico" >
+        <action
+            android:id="@+id/action_recordAcademicoFragment_self"
+            app:destination="@id/recordAcademicoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modalidadesFragment"
+        android:name="com.example.proyectopdm.ModalidadesFragment"
+        android:label="@string/menu_modalidades"
+        tools:layout="@layout/fragment_modalidades" />
+    <fragment
+        android:id="@+id/estudiantesFragment"
+        android:name="com.example.proyectopdm.EstudiantesFragment"
+        android:label="@string/menu_estudiantes"
+        tools:layout="@layout/fragment_estudiantes" >
+        <action
+            android:id="@+id/action_estudiantesFragment_self"
+            app:destination="@id/estudiantesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/docentesFragment"
+        android:name="com.example.proyectopdm.DocentesFragment"
+        android:label="@string/menu_docentes"
+        tools:layout="@layout/fragment_docentes" >
+        <action
+            android:id="@+id/action_docentesFragment_to_docenteCrear"
+            app:destination="@id/docenteCrear" />
+        <action
+            android:id="@+id/action_docentesFragment_self"
+            app:destination="@id/docentesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carrerasFragment"
+        android:name="com.example.proyectopdm.CarrerasFragment"
+        android:label="@string/menu_carreras"
+        tools:layout="@layout/fragment_carreras" >
+        <action
+            android:id="@+id/action_carrerasFragment_self"
+            app:destination="@id/carrerasFragment" />
+        <action
+            android:id="@+id/action_carrerasFragment_to_crearCarreraFragment"
+            app:destination="@id/crearCarreraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cerrarSesionFragment"
+        android:name="com.example.proyectopdm.CerrarSesionFragment"
+        android:label="@string/menu_cerrarsesion"
+        tools:layout="@layout/fragment_cerrar_sesion" >
+        <action
+            android:id="@+id/action_cerrarSesionFragment_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+    </fragment>
+    <fragment
+        android:id="@+id/proyectosAsignadosFragment"
+        android:name="com.example.proyectopdm.ProyectosAsignadosFragment"
+        android:label="@string/menu_proyectosAsigandos"
+        tools:layout="@layout/fragment_proyectos_asignados" />
+    <fragment
+        android:id="@+id/miServicioSocialFragment"
+        android:name="com.example.proyectopdm.MiServicioSocialFragment"
+        android:label="@string/menu_miServicioSocial"
+        tools:layout="@layout/fragment_mi_servicio_social" >
+        <action
+            android:id="@+id/action_miServicioSocialFragment_to_actActivity"
+            app:destination="@id/actActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumenServicioSocialFragment"
+        android:name="com.example.proyectopdm.ResumenServicioSocialFragment"
+        android:label="@string/menu_resumen"
+        tools:layout="@layout/fragment_resumen_servicio_social" >
+        <action
+            android:id="@+id/action_resumenServicioSocialFragment_self"
+            app:destination="@id/resumenServicioSocialFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/docenteCrear"
+        android:name="com.example.proyectopdm.fragment_docente_crear"
+        android:label="@string/cd"
+        tools:layout="@layout/fragment_docente_crear" />
+    <fragment
+        android:id="@+id/fragment_estudiante_crear"
+        android:name="com.example.proyectopdm.fragment_estudiante_crear"
+        android:label="@string/ce"
+        tools:layout="@layout/fragment_estudiante_crear" />
+    <fragment
+        android:id="@+id/agregarBitacoraFragment"
+        android:name="com.example.proyectopdm.AgregarBitacoraFragment"
+        android:label="@string/menu_agregar_bitacora"
+        tools:layout="@layout/fragment_agregar_bitacora" />
+    <fragment
+        android:id="@+id/actividadCrearFragment"
+        android:name="com.example.proyectopdm.ActividadCrearFragment"
+        android:label="@string/menu_crear_actividad"
+        tools:layout="@layout/fragment_actividad_crear" />
+    <fragment
+        android:id="@+id/listaActividadesFragment"
+        android:name="com.example.proyectopdm.fragmentR.ListaActividadesFragment"
+        android:label="@string/menu_listadoActividades"
+        tools:layout="@layout/fragment_lista_actividades" />
+    <fragment 
+        android:id="@+id/fragment_estudiante_modificar2"
+        android:name="com.example.proyectopdm.fragment_estudiante_modificar"
+        android:label="@string/ee"
+        tools:layout="@layout/fragment_estudiante_modificar" />
+
+    <fragment
+        android:id="@+id/crearCarreraFragment"
+        android:name="com.example.proyectopdm.CrearCarreraFragment"
+        android:label="@string/cc"
+        tools:layout="@layout/fragment_crear_carrera" >
+        <action
+            android:id="@+id/action_crearCarreraFragment_to_crearAreaFragment"
+            app:destination="@id/crearAreaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearAreaFragment"
+        android:name="com.example.proyectopdm.CrearAreaFragment"
+        android:label="@string/creArea"
+        tools:layout="@layout/fragment_crear_area" />
+    <fragment
+        android:id="@+id/editarActividadFragment"
+        android:name="com.example.proyectopdm.fragmentR.EditarActividadFragment"
+        android:label="@string/menu_editar_actividad"
+        tools:layout="@layout/fragment_editar_actividad" />
+    <fragment
+        android:id="@+id/detalleActividadFragment"
+        android:name="com.example.proyectopdm.fragmentR.DetalleActividadFragment"
+        android:label="@string/menu_detalle_act"
+        tools:layout="@layout/fragment_detalle_actividad" />
+    <fragment
+        android:id="@+id/mainActividadFragment"
+        android:name="com.example.proyectopdm.fragmentR.MainActividadFragment"
+        android:label="fragment_main_actividad"
+        tools:layout="@layout/fragment_main_actividad" />
+    <activity
+        android:id="@+id/actActivity"
+        android:name="com.example.proyectopdm.ActActivity"
+        android:label="activity_act"
+        tools:layout="@layout/activity_act" />
+    <fragment
+        android:id="@+id/detalleBitacoraFragment"
+        android:name="com.example.proyectopdm.fragmentR.DetalleBitacoraFragment"
+        android:label="@string/menu_editar_bitacora"
+        tools:layout="@layout/fragment_detalle_bitacora" />
+    <fragment
+        android:id="@+id/editarCarreraFragment"
+        android:name="com.example.proyectopdm.EditarCarreraFragment"
+        android:label="@string/editCarrera"
+        tools:layout="@layout/fragment_editar_carrera" />
+    <fragment
+        android:id="@+id/areaFragment"
+        android:name="com.example.proyectopdm.AreaFragment"
+        android:label="@string/titleArea"
+        tools:layout="@layout/fragment_area" >
+        <action
+            android:id="@+id/action_areaFragment_self"
+            app:destination="@id/areaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearResumenServicioFragment"
+        android:name="com.example.proyectopdm.fragmentR.CrearDetalleServicioFragment"
+        android:label="Crear Resumen servicio social"
+        tools:layout="@layout/fragment_crear_resumen_servicio" />
+    <fragment
+        android:id="@+id/editarAreaFragment"
+        android:name="com.example.proyectopdm.EditarAreaFragment"
+        android:label="@string/ea"
+        tools:layout="@layout/fragment_editar_area" />
+    <fragment
+        android:id="@+id/detalleServicioFragment"
+        android:name="com.example.proyectopdm.DetalleServicioFragment"
+        android:label="@string/dss"
+        tools:layout="@layout/fragment_detalle_servicio" >
+        <action
+            android:id="@+id/action_detalleServicioFragment_self"
+            app:destination="@id/detalleServicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearRecordFragment"
+        android:name="com.example.proyectopdm.CrearRecordFragment"
+        android:label="@string/cr"
+        tools:layout="@layout/fragment_crear_record" />
+    <fragment
+        android:id="@+id/editarRecordFragment"
+        android:name="com.example.proyectopdm.EditarRecordFragment"
+        android:label="@string/er"
+        tools:layout="@layout/fragment_editar_record" />
+    <fragment
+        android:id="@+id/fragment_editar_docente3"
+        android:name="com.example.proyectopdm.Fragment_editar_docente"
+        android:label="@string/ed"
+        tools:layout="@layout/fragment_editar_docente" />
+    <fragment
+        android:id="@+id/modificarDocenteFragment"
+        android:name="com.example.proyectopdm.ModificarDocenteFragment"
+        android:label="@string/md"
+        tools:layout="@layout/fragment_modificar_docente" />
+    <fragment
+        android:id="@+id/modificarEstudiante"
+        android:name="com.example.proyectopdm.ModificarEstudiante"
+        android:label="@string/me"
+        tools:layout="@layout/fragment_modificar_estudiante" />
+    <fragment
+        android:id="@+id/proyectosMainFragment"
+        android:name="com.example.proyectopdm.ProyectosMainFragment"
+        android:label="@string/p"
+        tools:layout="@layout/fragment_proyectos_main" >
+        <action
+            android:id="@+id/action_proyectosMainFragment_self"
+            app:destination="@id/proyectosMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearProyectoFragment"
+        android:name="com.example.proyectopdm.CrearProyectoFragment"
+        android:label="cp"
+        tools:layout="@layout/fragment_crear_proyecto" />
+    <fragment
+        android:id="@+id/editarEstudianteFragment"
+        android:name="com.example.proyectopdm.EditarEstudianteFragment"
+        android:label="@string/eee"
+        tools:layout="@layout/fragment_editar_estudiante" />
+    <fragment
+        android:id="@+id/editarProyectoFragment"
+        android:name="com.example.proyectopdm.EditarProyectoFragment"
+        android:label="@string/ep"
+        tools:layout="@layout/fragment_editar_proyecto" />
+        <fragment
+        android:id="@+id/resumenCrearFragment"
+        android:name="com.example.proyectopdm.fragmentR.ResumenCrearFragment"
+        android:label="fragment_resumen_crear"
+        tools:layout="@layout/fragment_resumen_crear" />
+    <fragment
+        android:id="@+id/editarDetalleFragment"
+        android:name="com.example.proyectopdm.fragmentR.EditarDetalleFragment"
+        android:label="@string/menu_editar_detalle_servicio"
+        tools:layout="@layout/fragment_editar_detalle" />
+</navigation>
