@@ -1,10 +1,15 @@
 package com.example.proyectopdm;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +36,7 @@ public class CrearAreaFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final int RECOGNIZER_RESULT = 1;
 
     EditText txtNomArea, txtDesArea,txtArea;
     Button btnGuardar;
@@ -38,6 +44,7 @@ public class CrearAreaFragment extends Fragment {
     BD helper;
     AutoCompleteTextView listArea;
     ImageView menuA;
+    ImageView btnMicro;
     AutoCompleteTextView nomAr;
 
     // TODO: Rename and change types of parameters
@@ -86,6 +93,22 @@ public class CrearAreaFragment extends Fragment {
 
         txtDesArea = (TextInputEditText) v.findViewById(R.id.textCreaAreaDes);
 
+        //Para btn Microfono
+        btnMicro = v.findViewById(R.id.btnMicro);
+
+        btnMicro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent speachIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                speachIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                speachIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speach  to text");
+                startActivityForResult(speachIntent, RECOGNIZER_RESULT);
+
+            }
+        });
+        /*********************************************/
+
 
         btncrear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +122,18 @@ public class CrearAreaFragment extends Fragment {
 
         return v;
     }
+    //Para btnMicrofono
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK){
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            txtDesArea.setText(matches.get(0));
+
+        }
+    }
+    /***********************************/
+
     public void insertarArea(View v){
         String nombre = txtNomArea.getText().toString();
         //Integer area = Integer.valueOf(txtArea.getText().toString());

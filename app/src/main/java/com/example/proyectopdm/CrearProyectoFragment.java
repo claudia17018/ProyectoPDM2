@@ -1,10 +1,15 @@
 package com.example.proyectopdm;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +37,7 @@ public class CrearProyectoFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final int RECOGNIZER_RESULT = 1;
 
 
 
@@ -42,6 +48,7 @@ public class CrearProyectoFragment extends Fragment {
     BD helper;
     AutoCompleteTextView listDocentes,listCategorias,listaModalidad;
     ImageView menuA;
+    ImageView btnMicro;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -109,6 +116,19 @@ public class CrearProyectoFragment extends Fragment {
         txtestudiantes = (TextInputEditText) v.findViewById(R.id.estudiProCe);
         txtEstado = (TextInputEditText) v.findViewById(R.id.estadoProCe);
 
+        //Para btn microfono
+        btnMicro = v.findViewById(R.id.btnMicroProyecto);
+        btnMicro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent speachIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                speachIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                speachIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speach  to text");
+                startActivityForResult(speachIntent, RECOGNIZER_RESULT);
+
+            }
+        });
+        /***********************/
 
 
         listCategorias = (AutoCompleteTextView) v.findViewById(R.id.categoriaProCe);
@@ -174,7 +194,15 @@ public class CrearProyectoFragment extends Fragment {
     public void limpiarTexto(View v){
         txtNom.setText("");
 
-
     }
+    /****Para microfono****/
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK){
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            txtDescripcion.setText(matches.get(0));
 
+        }
+    }/*******************/
 }
