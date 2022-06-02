@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.proyectopdm.adaptadorl.AdaptadorCarrera;
@@ -113,6 +114,7 @@ public class ResumenServicioSocialFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         FloatingActionButton btn1 = view.findViewById(R.id.btnAgregarResumenServicio);
+        Button button= view.findViewById(R.id.button);
         adaptadorResumenServicio.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -134,6 +136,11 @@ public class ResumenServicioSocialFragment extends Fragment {
             }
         });
 
-
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.javaEmailActivity);
+            }
+        });
     }
 }

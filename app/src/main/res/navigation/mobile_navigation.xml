@@ -263,4 +263,14 @@
         android:name="com.example.proyectopdm.fragmentR.EditarDetalleFragment"
         android:label="@string/menu_editar_detalle_servicio"
         tools:layout="@layout/fragment_editar_detalle" />
+    <activity
+        android:id="@+id/logoutActivity"
+        android:name="com.example.proyectopdm.LogoutActivity"
+        android:label="activity_logout"
+        tools:layout="@layout/activity_logout" />
+    <activity
+        android:id="@+id/javaEmailActivity"
+        android:name="com.example.proyectopdm.javaEmailActivity"
+        android:label="activity_java_email"
+        tools:layout="@layout/activity_java_email" />
 </navigation>

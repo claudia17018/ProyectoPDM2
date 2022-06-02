@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".javaEmailActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Envia tu Email"
+        android:gravity="center"
+        android:textSize="26dp"
+        android:layout_margin="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:inputType="textEmailAddress"
+        >
+    </TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Your Gmail Address"
+        android:id="@+id/myEmail"
+        android:layout_marginTop="20dp"
+        android:inputType="textEmailAddress"
+        >
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Your Gmail Password"
+        android:id="@+id/myPassword"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        >
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Receiver's Email Address"
+        android:id="@+id/receiverEmail"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        >
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email Title"
+        android:layout_margin="16dp"
+        android:id="@+id/title"
+        android:layout_marginTop="30dp"
+        android:inputType="textEmailAddress"
+        >
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Message"
+        android:gravity="start"
+        android:inputType="text"
+        android:minHeight="150dp" />
+
+    <Button
+        android:id="@+id/sendemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="32dp"
+        android:text="send email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageet" />
+
+</LinearLayout>
