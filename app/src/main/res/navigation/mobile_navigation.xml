@@ -263,4 +263,19 @@
         android:name="com.example.proyectopdm.fragmentR.EditarDetalleFragment"
         android:label="@string/menu_editar_detalle_servicio"
         tools:layout="@layout/fragment_editar_detalle" />
+    <fragment
+        android:id="@+id/camaraFragment"
+        android:name="com.example.proyectopdm.CamaraFragment"
+        android:label="fragment_camara"
+        tools:layout="@layout/fragment_camara" />
+    <fragment
+        android:id="@+id/pdf_Fragment"
+        android:name="com.example.proyectopdm.pdf_Fragment"
+        android:label="fragment_pdf"
+        tools:layout="@layout/fragment_pdf" />
+    <activity
+        android:id="@+id/pdfActivity"
+        android:name="com.example.proyectopdm.PdfActivity"
+        android:label="activity_pdf"
+        tools:layout="@layout/activity_pdf" />
 </navigation>

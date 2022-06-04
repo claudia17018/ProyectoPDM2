@@ -38,6 +38,7 @@ public class InicioFragment extends Fragment {
         final ImageView btn2 = binding.irAProyectos;
         final ImageView btn3 = binding.irARecord;
         final ImageView btn4 = binding.irAMi;
+        final ImageView btn5 = binding.btnMenuCameraAPI;
 
 
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +73,12 @@ public class InicioFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.miServicioSocialFragment);
 
 
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.camaraFragment);
             }
         });
 
