@@ -143,6 +143,10 @@
     <string name="back" translatable="false"><![CDATA[<-]]></string>
     <string name="forward" translatable="false"><![CDATA[->]]></string>
     <string name="calendario" translatable="false">Calendario</string>
+    <string name="long_message">Actualiza los campos</string>
+    <string name="decline">Cancelar</string>
+    <string name="accept">Actualizar</string>
+    <string name="estP">id Estudiante</string>
 
 
 </resources>

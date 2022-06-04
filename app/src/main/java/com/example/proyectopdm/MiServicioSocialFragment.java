@@ -16,7 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectopdm.adaptadores.AdaptadorBitacora;
@@ -24,6 +27,7 @@ import com.example.proyectopdm.bd.BD;
 import com.example.proyectopdm.entidades.Bitacora;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
@@ -37,7 +41,12 @@ public class MiServicioSocialFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    //CREAR BITACORA
+    BD helper;
+    private Context context;
+    TextInputEditText textInputEditTextAnio;
+    AutoCompleteTextView autoCompleteTextViewCiclo, autoCompleteTextViewMes;
+    DT dt;
     ArrayList<Bitacora> listadoBitacora;
     BD.DataBaseHelper dataBaseHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -83,7 +92,7 @@ public class MiServicioSocialFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_mi_servicio_social, container, false);
-
+        helper = new BD(getContext());
         dataBaseHelper = new BD.DataBaseHelper(getContext());
         listadoBitacora = new ArrayList<>();
         recyclerView = (RecyclerView) vista.findViewById(R.id.recyclerViewListBitacora);
@@ -112,8 +121,6 @@ public class MiServicioSocialFragment extends Fragment {
         return listadoBitacora;
         }
 
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -130,12 +137,80 @@ public class MiServicioSocialFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.listaActividadesFragment,datosBitacora);
             }
         });
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.agregarBitacoraFragment);
+               // Navigation.findNavController(view).navigate(R.id.agregarBitacoraFragment);
+
+                MaterialAlertDialogBuilder builder1 = new MaterialAlertDialogBuilder(getContext());
+                //MaterialAlertDialogBuilder(context)
+                builder1.setTitle("Editar Bitacora");
+                builder1.setMessage(getContext().getString(R.string.long_message));
+                LayoutInflater inflater = LayoutInflater.from(getContext());
+                View v = inflater.inflate(R.layout.fragment_agregar_bitacora, null);
+
+                textInputEditTextAnio = v.findViewById(R.id.inputAnioBit);
+                autoCompleteTextViewCiclo = v.findViewById(R.id.actCiclo);
+                autoCompleteTextViewMes = v.findViewById(R.id.actMeses);
+                EditText idestudiante = v.findViewById(R.id.inputEstP);
+
+                ArrayAdapter<CharSequence> adapterMeses = ArrayAdapter.createFromResource(getContext(),R.array.combo_meses, android.R.layout.simple_spinner_item);
+                autoCompleteTextViewMes.setAdapter(adapterMeses);
+
+                ArrayAdapter<CharSequence> adapterCiclo = ArrayAdapter.createFromResource(getContext(),R.array.combo_ciclo, android.R.layout.simple_spinner_item);
+                autoCompleteTextViewCiclo.setAdapter(adapterCiclo);
+                builder1.setView(v);
+                builder1.setNegativeButton(getContext().getString(R.string.decline), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                // Respond to negative button press
+                builder1.setPositiveButton(getContext().getString(R.string.accept), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(autoCompleteTextViewCiclo.getText().toString().isEmpty() || autoCompleteTextViewMes.getText().toString().isEmpty() ||textInputEditTextAnio.getText().toString().isEmpty()) {
+                            Toast.makeText(getContext(),getString(R.string.camposVacios), Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            insertarBitacora(v);
+                            limpiarInput();
+                        }
+                    }
+                });
+                // Respond to positive button press
+                builder1.show();
             }
         });
     }
 
+    public void insertarBitacora(View v){
+        String regInsertados;
+        Integer ciclo = Integer.valueOf(autoCompleteTextViewCiclo.getText().toString());
+        String mes = autoCompleteTextViewMes.getText().toString();
+        Integer anio = Integer.valueOf(textInputEditTextAnio.getText().toString());
+
+        dt=new DT();
+        helper.abrir();
+        dt=helper.activo();
+        Integer idEstudianteProyecto = Integer.valueOf(dt.getIdU());
+        Bitacora bitacora = new Bitacora();
+        bitacora.setIdEstudianteProyecto(idEstudianteProyecto);
+        bitacora.setCiclo(ciclo);
+        bitacora.setMes(mes);
+        bitacora.setAnio(anio);
+        helper.abrir();
+        regInsertados =  helper.insertarBitacora(bitacora);
+        helper.cerrar();
+        Toast.makeText(getContext(),regInsertados, Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void limpiarInput(){
+        autoCompleteTextViewCiclo.setText("");
+        textInputEditTextAnio.setText("");
+        autoCompleteTextViewMes.setText("");
+    }
 }

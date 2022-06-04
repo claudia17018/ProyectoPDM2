@@ -136,5 +136,9 @@
     <string name="menu_editar_detalle_servicio">Editar Detalle Servicio</string>
     <string name="fechaApertura">Fecha de apertura</string>
     <string name="carnetEstudianteAp">Carnet</string>
+    <string name="long_message">Actualiza los campos</string>
+    <string name="decline">Cancelar</string>
+    <string name="accept">Actualizar</string>
+    <string name="estP">id Estudiante</string>
 
 </resources>

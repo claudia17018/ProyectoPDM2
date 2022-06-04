@@ -1,6 +1,8 @@
 package com.example.proyectopdm;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.proyectopdm.bd.BD;
 import com.example.proyectopdm.entidades.Bitacora;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -35,10 +38,11 @@ import org.w3c.dom.Text;
 public class AgregarBitacoraFragment extends Fragment {
 
     BD helper;
-
+    private Context context;
     TextInputEditText textInputEditTextAnio;
     AutoCompleteTextView autoCompleteTextViewCiclo, autoCompleteTextViewMes;
     EditText idestudiante;
+    Button btnAgregar;
     DT dt;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,16 +89,20 @@ public class AgregarBitacoraFragment extends Fragment {
          autoCompleteTextViewMes = v.findViewById(R.id.actMeses);
 
 
-        idestudiante = v.findViewById(R.id.idEstudianteProyecto);
-
         ArrayAdapter<CharSequence> adapterMeses = ArrayAdapter.createFromResource(getContext(),R.array.combo_meses, android.R.layout.simple_spinner_item);
         autoCompleteTextViewMes.setAdapter(adapterMeses);
 
         ArrayAdapter<CharSequence> adapterCiclo = ArrayAdapter.createFromResource(getContext(),R.array.combo_ciclo, android.R.layout.simple_spinner_item);
         autoCompleteTextViewCiclo.setAdapter(adapterCiclo);
 
-        Button btnAgregar = v.findViewById(R.id.btnCrearBitacora);
+        btnAgregar = v.findViewById(R.id.btnCrearBitacora);
 
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View vi) {
@@ -107,7 +115,8 @@ public class AgregarBitacoraFragment extends Fragment {
                 }
             }
         });
-        return v;
+
+
     }
 
     public void insertarBitacora(View v){
