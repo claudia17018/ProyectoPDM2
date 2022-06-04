@@ -50,7 +50,7 @@ public class MenuOpcionesActivity extends AppCompatActivity {
                 R.id.nav_inicio, R.id.nav_miperfil, R.id.nav_proyectos,R.id.estudiantesFragment,
                 R.id.miServicioSocialFragment, R.id.recordAcademicoFragment,R.id.cerrarSesionFragment,
                 R.id.docentesFragment,R.id.carrerasFragment,R.id.modalidadesFragment,
-                R.id.proyectosAsignadosFragment,R.id.resumenServicioSocialFragment,R.id.crearCarreraFragment)
+                R.id.proyectosAsignadosFragment,R.id.resumenServicioSocialFragment,R.id.crearCarreraFragment,R.id.javaEmailActivity,R.id.calendarFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_opciones);

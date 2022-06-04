@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.proyectopdm"
-        minSdk 21
+        minSdk 26
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -58,4 +58,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
 }

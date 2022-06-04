@@ -1,10 +1,14 @@
 package com.example.proyectopdm;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +27,7 @@ public class javaEmailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_java_email);
 
+
         mRecipient=findViewById(R.id.recepintid);
         mSubject=findViewById(R.id.subject);
         mMessage=findViewById(R.id.messageet);
@@ -38,13 +43,15 @@ public class javaEmailActivity extends AppCompatActivity {
             }
         });
     }
+
+
     private void sendEmail(String recipient, String subject, String message) {
         Intent mEmailIntent = new Intent(Intent.ACTION_SEND);
         mEmailIntent.setData(Uri.parse("mail to:"));
         mEmailIntent.setType("text/plain");
         mEmailIntent.putExtra(Intent.EXTRA_EMAIL,new String[]{recipient});
         mEmailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        mEmailIntent.putExtra(Intent.EXTRA_TEXT, message);
+        mEmailIntent.putExtra(Intent.EXTRA_TEXT, message);;
         try {
             startActivity(Intent.createChooser(mEmailIntent,"Elegir un cliente de correo electrónico"));
         }

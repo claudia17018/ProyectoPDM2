@@ -4,6 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Actividad implements Parcelable {
     private int idActividad;
@@ -11,6 +14,34 @@ public class Actividad implements Parcelable {
     private String descripcionTipoActividad;
     private String fechaActividad;
     private int numHorasActividades;
+    public static ArrayList<Actividad> eventsList = new ArrayList<>();
+
+    public static ArrayList<Actividad> eventsForDate(LocalDate date)
+    {
+        ArrayList<Actividad> events = new ArrayList<>();
+
+        for(Actividad event : eventsList)
+        {
+            if(event.getFechaActividad().equals(date))
+                events.add(event);
+        }
+
+        return events;
+    }
+
+    public static ArrayList<Actividad> eventsForDateAndTime(LocalDate date)
+    {
+        ArrayList<Actividad> events = new ArrayList<>();
+
+        for(Actividad event : eventsList)
+        {
+
+            if(event.getFechaActividad().equals(date))
+                events.add(event);
+        }
+
+        return events;
+    }
 
     public Actividad() {
     }

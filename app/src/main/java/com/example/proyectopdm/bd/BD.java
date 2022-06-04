@@ -331,6 +331,23 @@ public class BD {
         final String[] VUnombre = {"Admin","Daniel","Roxana","Luis"};
         final String[] VUclave ={"1","1","1","1"};
 
+        /*************Bitacora*********************/
+        final int[] bCiclo={1,1,1,1};
+        final int[] bid={1,2,1,2};
+        final String[] bMes={"Junio","Junio","Junio","Junio"};
+        final int[] banio={2022,2022,2022,2022};
+        final int[] bsp={1,1,1,1};
+
+        /*************Actividad*********************/
+        final int[] aid={1,2,3,4};
+        final String[] afecha={"01/05/2022","01/05/2022","02/05/2022","02/05/2022"};
+        final String[] aa= {"Analisis","Diseno","Mockup","Pruebas"};
+        final int[] ahoras={2,3,4,2};
+        final String[] ades= {"Analisis","Diseno","Mockup","Pruebas"};
+
+        /*************DetalleBitacora*********************/
+
+
         /************Carrera*********************/
         final int[] iIdArea={1,1,1};
         final String[] iNomCarrera={"Ingenieria en Sistemas Informaticos","Ingenieria Industrial","Ingenieria Quimica"};
@@ -541,6 +558,29 @@ public class BD {
                 insertarProyecto(proy);
             }
 
+            Bitacora bitacora=new Bitacora();
+            for(int i=0;i<4;i++){
+                bitacora.setCiclo(bCiclo[i]);
+                bitacora.setIdEstudianteProyecto(bsp[i]);
+                bitacora.setAnio(banio[i]);
+                bitacora.setMes(bMes[i]);
+                insertarBitacora(bitacora);
+            }
+
+            Actividad actividad = new Actividad();
+            DetalleBitacora detalleBitacora=new DetalleBitacora();
+            for(int i=0;i<4;i++){
+                actividad.setFechaActividad(afecha[i]);
+                actividad.setNombreActividad(aa[i]);
+                actividad.setDescripcionTipoActividad(ades[i]);
+                actividad.setNumHorasActividades(ahoras[i]);
+                insertarActividad(actividad);
+                detalleBitacora.setFechaCreacion(afecha[i]);
+                detalleBitacora.setIdBitacora(bid[i]);
+                detalleBitacora.setIdActividad(aid[i]);
+                insertarDetalleBitacora(detalleBitacora);
+
+            }
         }
         cerrar();
 
@@ -824,7 +864,6 @@ public class BD {
 
         idAct = recuperarIdActividad();
         ContentValues detbit = new ContentValues();
-        System.out.println(detalleBitacora);
         detbit.put("IDBITACORA",detalleBitacora.getIdBitacora());
         detbit.put("IDACTIVIDAD",idAct);
         detbit.put("FECHACREACION",detalleBitacora.getFechaCreacion());

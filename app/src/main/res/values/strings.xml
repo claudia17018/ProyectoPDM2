@@ -23,6 +23,7 @@
     <string name="menu_detalle_act">Detalle actividad</string>
     <string name="menu_listadoActividades">Actividades</string>
     <string name="menu_modalidades">Modalidades</string>
+    <string name="menu_act" translatable="false">Mis actividades</string>
     <string name="menu_miServicioSocial">Mi servicio social</string>
     <string name="menu_cerrarsesion">Cerrar sesion</string>
     <string name="menu_carreras">Carreras</string>
@@ -138,6 +139,10 @@
 
     <string name="fechaApertura">Fecha de apertura</string>
     <string name="carnetEstudianteAp">Carnet</string>
+    <string name="menu_correo" translatable="false">Correo</string>
+    <string name="back" translatable="false"><![CDATA[<-]]></string>
+    <string name="forward" translatable="false"><![CDATA[->]]></string>
+    <string name="calendario" translatable="false">Calendario</string>
 
 
 </resources>

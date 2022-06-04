@@ -273,4 +273,14 @@
         android:name="com.example.proyectopdm.javaEmailActivity"
         android:label="activity_java_email"
         tools:layout="@layout/activity_java_email" />
+    <activity
+        android:id="@+id/customPrintActivity"
+        android:name="com.example.proyectopdm.CustomPrintActivity"
+        android:label="activity_custom_print"
+        tools:layout="@layout/activity_custom_print" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.proyectopdm.fragmentR.CalendarFragment"
+        android:label="@string/menu_act"
+        tools:layout="@layout/fragment_calendar" />
 </navigation>

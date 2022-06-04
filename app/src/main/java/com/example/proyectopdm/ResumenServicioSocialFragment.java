@@ -114,7 +114,7 @@ public class ResumenServicioSocialFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         FloatingActionButton btn1 = view.findViewById(R.id.btnAgregarResumenServicio);
-        Button button= view.findViewById(R.id.button);
+        Button imprimir = view.findViewById(R.id.Imprimir);
         adaptadorResumenServicio.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -136,10 +136,10 @@ public class ResumenServicioSocialFragment extends Fragment {
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
+        imprimir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.javaEmailActivity);
+                Navigation.findNavController(view).navigate(R.id.customPrintActivity);
             }
         });
     }

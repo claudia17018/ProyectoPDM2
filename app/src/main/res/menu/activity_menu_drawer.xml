@@ -28,10 +28,10 @@
             android:id="@+id/docentesFragment"
             android:icon="@drawable/ic_baseline_docentes"
             android:title="@string/menu_docentes" />
-        <!--<item
-            android:id="@+id/modalidadesFragment"
-            android:icon="@drawable/ic_baseline_modalidad"
-            android:title="@string/menu_modalidades" />-->
+        <item
+            android:id="@+id/calendarFragment"
+            android:icon="@drawable/ic_baseline_calendar"
+            android:title="@string/calendario" />
         <item
             android:id="@+id/miServicioSocialFragment"
             android:icon="@drawable/ic_baseline_miservicio"
@@ -48,6 +48,10 @@
             android:id="@+id/resumenServicioSocialFragment"
             android:icon="@drawable/ic_resumen"
             android:title="@string/menu_resumen" />
+        <item
+            android:id="@+id/javaEmailActivity"
+            android:icon="@drawable/ic_baseline_email"
+            android:title="@string/menu_correo" />
         <!--<item
             android:id="@+id/proyectosAsignadosFragment"
             android:icon="@drawable/ic_baseline_asignados"
