@@ -1,15 +1,23 @@
 package com.example.proyectopdm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectopdm.bd.BD;
@@ -27,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 1000;
     GoogleSignInOptions gso;
+    TextView register;
+    SpannableString spannableString;
+    String texto="No tienes una cuenta Registrate";
     GoogleSignInClient gsc;
     Button btnEntrar,btnRegistar;
     SignInButton btnGoogle;
@@ -43,6 +54,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEntrar=(Button) findViewById(R.id.btnIngresar);
        // btnRegistar=(Button) findViewById(R.id.btnRegistrarse);
         db=new BD(this);
+
+        register= findViewById(R.id.spanSignin);
+
+        spannableString = new SpannableString(texto);
+        ClickableSpan clickableSpan=new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View view) {
+                Intent i=new Intent(MainActivity.this,RegistrarUsuarioActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setColor(Color.RED);
+                ds.setUnderlineText(false);
+            }
+        };
+
+        spannableString.setSpan(clickableSpan,20,31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        register.setText(spannableString);
+        register.setMovementMethod(LinkMovementMethod.getInstance());
 
         //Asignacion de eventos a los botones
         btnEntrar.setOnClickListener(this);

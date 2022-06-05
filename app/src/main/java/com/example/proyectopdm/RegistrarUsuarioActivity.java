@@ -14,22 +14,33 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectopdm.bd.BD;
+import com.example.proyectopdm.docente.Estudiante;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class RegistrarUsuarioActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText usuario,contraseña;
+    TextInputEditText usuario,contraseña;
+    TextInputEditText txtCarnet, txtNombre, txtApellido, txtTelefono, txtEmail, txtDui, txtDomicilio, txtNit;
     Button btnRegistro;
     BD db;
-    fragment_docente_crear f = new fragment_docente_crear();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_usuario);
-        usuario=(EditText) findViewById(R.id.registrarUser);
-        contraseña=(EditText) findViewById(R.id.registrarPassword);
-        btnRegistro=(Button) findViewById(R.id.btnRegistro);
+
+        //Estudiante
+        txtCarnet = (TextInputEditText) findViewById(R.id.textCarnetAlumnoF);
+        txtNombre = (TextInputEditText) findViewById(R.id.textNombreEstudianteF);
+        txtApellido = (TextInputEditText) findViewById(R.id.textApellidoEstudianteF);
+        txtTelefono = (TextInputEditText) findViewById(R.id.textTelefonoEstudianteF);
+        txtEmail = (TextInputEditText) findViewById(R.id.textEmailEstudianteF);
+        txtDui = (TextInputEditText) findViewById(R.id.textDuiEstudianteF);
+        txtDomicilio = (TextInputEditText) findViewById(R.id.textDomicilioEstudianteF);
+        txtNit = (TextInputEditText) findViewById(R.id.textNitEstudianteF);
+        usuario=(TextInputEditText) findViewById(R.id.textEmailEstudianteF);
+        contraseña=(TextInputEditText) findViewById(R.id.textPassUsuarioF);
+        btnRegistro=(Button) findViewById(R.id.btnRegister);
         //Base de datos
         db = new BD(this);
-
         //Asignacion de eventos a los botones
         btnRegistro.setOnClickListener(this);
 
@@ -38,25 +49,33 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnRegistro:
+            case R.id.btnRegister:
                 db.abrir();
                 //Llenado de usuario
                 Usuario us=new Usuario();
                 us.setUsuario(usuario.getText().toString());
                 us.setContraseña(contraseña.getText().toString());
-                if(!us.isNull()){
+
+                //Para estudiante
+                Estudiante estudiante = new Estudiante();
+                estudiante.setCarnet(txtCarnet.getText().toString());
+                estudiante.setNombreEstudiante(txtNombre.getText().toString());
+                estudiante.setApellidoEstudiante(txtApellido.getText().toString());
+                estudiante.setTelefono( txtTelefono.getText().toString());
+                estudiante.setEmailEstudinate(txtEmail.getText().toString());
+                estudiante.setDuiEstudiante(txtDui.getText().toString());
+                estudiante.setDomicilioEstudiante(txtDomicilio.getText().toString());
+                estudiante.setNitEstudiante(txtNit.getText().toString());
+
+                if(!us.isNull()||!estudiante.isNull()){
                     //Mensaje
                     Toast.makeText(this, "ERROR: Campos vacios", Toast.LENGTH_SHORT).show();
                 }else if(db.insertUsuario(us)){
+                    db.insertarEstudiante(estudiante);
                     Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                     Intent i2=new Intent(RegistrarUsuarioActivity.this,MainActivity.class);
                     startActivity(i2);
                     finish();
-                    //NavController navController = Navigation.findNavController(this, R.id.docenteCrear);
-                    //Navigation.findNavController(v).navigate(R.id.docenteCrear);
-                    //getSupportFragmentManager().beginTransaction().replace(f).addToBackStack(null).commit();
-                    //View vista = getActivity().findViewById(R.id.lista);
-
                 }
                 else{
                     Toast.makeText(this, "Usuario ya registrado", Toast.LENGTH_SHORT).show();

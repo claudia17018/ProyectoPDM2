@@ -37,6 +37,30 @@ public class Estudiante implements Parcelable {
         this.emailEstudinate = emailEstudinate;
     }
 
+    protected Estudiante(Parcel in) {
+        carnet = in.readString();
+        idUsuario = in.readInt();
+        nombreEstudiante = in.readString();
+        apellidoEstudiante = in.readString();
+        telefono = in.readString();
+        emailEstudinate = in.readString();
+        duiEstudiante = in.readString();
+        domicilioEstudiante = in.readString();
+        nitEstudiante = in.readString();
+    }
+
+    public static final Creator<Estudiante> CREATOR = new Creator<Estudiante>() {
+        @Override
+        public Estudiante createFromParcel(Parcel in) {
+            return new Estudiante(in);
+        }
+
+        @Override
+        public Estudiante[] newArray(int size) {
+            return new Estudiante[size];
+        }
+    };
+
     public String getCarnet() {
         return carnet;
     }
@@ -127,6 +151,14 @@ public class Estudiante implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    public boolean isNull(){
+        if(carnet.equals("")||nombreEstudiante.equals("")||emailEstudinate.equals("")||nitEstudiante.equals("")||apellidoEstudiante.equals("")||domicilioEstudiante.equals("")||telefono.equals("")){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     @Override

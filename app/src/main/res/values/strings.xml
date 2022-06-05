@@ -147,6 +147,7 @@
     <string name="decline">Cancelar</string>
     <string name="accept">Actualizar</string>
     <string name="estP">id Estudiante</string>
+    <string name="registrarse">Registrarse</string>
 
 
 </resources>

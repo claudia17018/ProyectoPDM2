@@ -761,14 +761,29 @@ public class BD {
         return regInsertados;
     }
 
+    //Recuperar ID de ultimo usuario ingresado
+    public int recuperarUltimoUsuario(){
+        int idU =0;
+        Cursor cursor = db.rawQuery("SELECT * FROM USUARIO;",null);
+        if(cursor.moveToLast()){
+            idU = cursor.getInt(0);//to get id, 0 is the column index
+        }
+        cursor.close();
+
+        return idU;
+    }
     /********************CRUD ESTUDIANTE***********************/
     public String insertarEstudiante(Estudiante estudiante){
         String regInsertados = "Registro Insertado N°= ";
         long contador;
+        int idUltimoUsuario=0;
+
         ContentValues estu = new ContentValues();
 
+        idUltimoUsuario=recuperarUltimoUsuario();
+
         estu.put("CARNET", estudiante.getCarnet());
-        estu.put("IDUSUARIO", estudiante.getIdUsuario());
+        estu.put("IDUSUARIO",idUltimoUsuario);
         estu.put("NOMBREESTUDIANTE", estudiante.getNombreEstudiante());
         estu.put("APELLIDOESTUDIANTE", estudiante.getApellidoEstudiante());
         estu.put("TELEFONO", estudiante.getTelefono());
