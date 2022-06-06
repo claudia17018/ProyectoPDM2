@@ -2,11 +2,15 @@ package com.example.proyectopdm.fragmentR;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.proyectopdm.R;
 
@@ -22,9 +26,15 @@ public class MainActividadFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    ListaActividadesFragment listaActividadesFragment;
-    DetalleActividadFragment detalleActividadFragment;
+    private final String CARPETA_RAIZ="misImagenesPrueba/";
+    private final String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
 
+    final int COD_SELECCIONA=10;
+    final int COD_FOTO=20;
+
+    Button botonCargar;
+    ImageView imagen;
+    String path;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -57,7 +67,7 @@ public class MainActividadFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            listaActividadesFragment = new ListaActividadesFragment();
+
         }
     }
 
@@ -65,6 +75,14 @@ public class MainActividadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_actividad, container, false);
+        View v = inflater.inflate(R.layout.fragment_main_actividad, container, false);
+        imagen= (ImageView) v.findViewById(R.id.imagemId);
+        botonCargar= (Button) v.findViewById(R.id.btnCargarImg);
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 }
