@@ -150,4 +150,6 @@
     <string name="registrarse">Registrarse</string>
 
 
+    <string name="capture_button_alt" translatable="false">Capture</string>
+    <string name="unknown" translatable="false">UNKNOWN</string>
 </resources>

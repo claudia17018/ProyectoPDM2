@@ -283,4 +283,5 @@
         android:name="com.example.proyectopdm.fragmentR.CalendarFragment"
         android:label="@string/menu_act"
         tools:layout="@layout/fragment_calendar" />
+ 
 </navigation>

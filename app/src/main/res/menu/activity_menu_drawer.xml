@@ -24,6 +24,7 @@
             android:id="@+id/estudiantesFragment"
             android:icon="@drawable/ic_estudiantes"
             android:title="@string/menu_estudiantes" />
+
         <item
             android:id="@+id/docentesFragment"
             android:icon="@drawable/ic_baseline_docentes"
@@ -60,6 +61,7 @@
             android:id="@+id/logoutActivity"
             android:icon="@drawable/ic_baseline_salir"
             android:title="@string/menu_cerrarsesion" />
+
 
         <!--<item
             android:id="@+id/cerrarSesionFragment"
