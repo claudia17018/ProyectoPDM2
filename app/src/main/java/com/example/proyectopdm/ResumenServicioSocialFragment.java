@@ -1,5 +1,7 @@
 package com.example.proyectopdm;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -40,6 +42,7 @@ public class ResumenServicioSocialFragment extends Fragment {
     ArrayList<ResumenServicioSocial> listadoResumenServicio;
     BD.DataBaseHelper dataBaseHelper;
     SQLiteDatabase sqLiteDatabase;
+    BD db;
     AdaptadorResumenServicio adaptadorResumenServicio;
     RecyclerView recyclerView;
 
@@ -84,6 +87,7 @@ public class ResumenServicioSocialFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_resumen_servicio_social, container, false);
 
         dataBaseHelper = new BD.DataBaseHelper(getContext());
+        db= new BD(getContext());
         listadoResumenServicio = new ArrayList<>();
         recyclerView = (RecyclerView) vista.findViewById(R.id.recyclerViewListResumenSer);
         listadoResumenServicio = consultarListadoResumenServicio();
@@ -96,8 +100,10 @@ public class ResumenServicioSocialFragment extends Fragment {
 
     private ArrayList<ResumenServicioSocial> consultarListadoResumenServicio() {
         sqLiteDatabase = dataBaseHelper.getReadableDatabase();
-
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM RESUMENSERVICIOTOTAL",null);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+        String carnet = sharedPreferences.getString("USUARIO","0");
+        String []est = {carnet};
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM RESUMENSERVICIOTOTAL WHERE CARNET=?",est);
         ArrayList<ResumenServicioSocial> listadoResumenServicio = new ArrayList<>();
 
         if (cursor.moveToFirst()) {

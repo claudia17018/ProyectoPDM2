@@ -28,6 +28,7 @@ import com.example.proyectopdm.entidades.Actividad;
 import com.example.proyectopdm.entidades.Bitacora;
 import com.example.proyectopdm.entidades.DetalleBitacora;
 import com.example.proyectopdm.entidades.DetalleResumenServicio;
+import com.example.proyectopdm.entidades.EstudianteProyecto;
 import com.example.proyectopdm.entidades.ResumenServicioSocial;
 
 import java.util.ArrayList;
@@ -390,7 +391,7 @@ public class BD {
 
         /*************Total ****************/
 
-        final String[] dtCarnet={"ML17025","LP13022"};
+        final String[] dtCarnet={"AB17018","ML17018"};
         final String[] dtDuiTu={"5454548484","5454548484"};
         final int[] dtId={1,2};
         final String[] dtFechaA={"01/01/22","05/02/22"};
@@ -772,6 +773,17 @@ public class BD {
 
         return idU;
     }
+
+    public int recuperarIdEstudiante(String carnet){
+        int idEP=0;
+        String[] carnetEP= {carnet};
+        Cursor c= db.rawQuery("SELECT * FROM ESTUDIANTEPROYECTO WHERE CARNET =?", carnetEP);
+        if(c.moveToLast()){
+            idEP = c.getInt(0);//to get id, 0 is the column index
+        }
+        c.close();
+        return  idEP;
+    }
     /********************CRUD ESTUDIANTE***********************/
     public String insertarEstudiante(Estudiante estudiante){
         String regInsertados = "Registro Insertado N°= ";
@@ -810,6 +822,27 @@ public class BD {
                 "CARNET='"+carnet+"'", null);
         regAfectados+=contador;
 
+    }
+    /******************* Estudiante Proyecto ***********************/
+
+    public String insertarEP(EstudianteProyecto ep){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        ContentValues bit = new ContentValues();
+        int h = 0;
+        bit.put("CARNET",ep.getCarnet());
+        bit.put("NUMEROTOTALHORASTRABAJADAS",h);
+        contador=db.insert("ESTUDIANTEPROYECTO", null, bit);
+
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        System.out.println(regInsertados);
+        return regInsertados;
     }
 
     /******************* CRUD BITACORA ***********************/

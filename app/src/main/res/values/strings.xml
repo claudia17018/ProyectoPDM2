@@ -143,9 +143,9 @@
     <string name="back" translatable="false"><![CDATA[<-]]></string>
     <string name="forward" translatable="false"><![CDATA[->]]></string>
     <string name="calendario" translatable="false">Calendario</string>
-    <string name="long_message">Actualiza los campos</string>
-    <string name="decline">Cancelar</string>
-    <string name="accept">Actualizar</string>
+    <string name="long_message">Crea una nueva bitacora!</string>
+    <string name="decline">CANCELAR</string>
+    <string name="accept">REGISTRAR</string>
     <string name="estP">id Estudiante</string>
     <string name="registrarse">Registrarse</string>
 

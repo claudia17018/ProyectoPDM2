@@ -27,8 +27,13 @@
             android:title="@string/menu_resumen" />
 
         <item
-            android:id="@+id/cerrarSesionFragment"
+            android:id="@+id/logoutActivity"
             android:icon="@drawable/ic_baseline_salir"
             android:title="@string/menu_cerrarsesion" />
+
+        <!--<item
+            android:id="@+id/cerrarSesionFragment"
+            android:icon="@drawable/ic_baseline_salir"
+            android:title="@string/menu_cerrarsesion" />-->
     </group>
 </menu>

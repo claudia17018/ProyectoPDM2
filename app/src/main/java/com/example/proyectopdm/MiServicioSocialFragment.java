@@ -2,6 +2,7 @@ package com.example.proyectopdm;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ public class MiServicioSocialFragment extends Fragment {
     TextInputEditText textInputEditTextAnio;
     AutoCompleteTextView autoCompleteTextViewCiclo, autoCompleteTextViewMes;
     DT dt;
+    int idEP;
     ArrayList<Bitacora> listadoBitacora;
     BD.DataBaseHelper dataBaseHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -107,8 +109,9 @@ public class MiServicioSocialFragment extends Fragment {
 
     private ArrayList<Bitacora> consultarListadoBitacora() {
         sqLiteDatabase = dataBaseHelper.getReadableDatabase();
-
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM BITACORA",null);
+        idEP=loadPreferencias();
+        String[] idEPr= {String.valueOf(idEP)};
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM BITACORA WHERE IDESTUDIANTEPROYECTO =?",idEPr);
         ArrayList<Bitacora> listadoBitacora = new ArrayList<>();
 
         if (cursor.moveToFirst()) {
@@ -187,6 +190,7 @@ public class MiServicioSocialFragment extends Fragment {
     }
 
     public void insertarBitacora(View v){
+        loadPreferencias();
         String regInsertados;
         Integer ciclo = Integer.valueOf(autoCompleteTextViewCiclo.getText().toString());
         String mes = autoCompleteTextViewMes.getText().toString();
@@ -195,7 +199,7 @@ public class MiServicioSocialFragment extends Fragment {
         dt=new DT();
         helper.abrir();
         dt=helper.activo();
-        Integer idEstudianteProyecto = Integer.valueOf(dt.getIdU());
+        Integer idEstudianteProyecto = loadPreferencias();
         Bitacora bitacora = new Bitacora();
         bitacora.setIdEstudianteProyecto(idEstudianteProyecto);
         bitacora.setCiclo(ciclo);
@@ -212,5 +216,14 @@ public class MiServicioSocialFragment extends Fragment {
         autoCompleteTextViewCiclo.setText("");
         textInputEditTextAnio.setText("");
         autoCompleteTextViewMes.setText("");
+    }
+
+    public Integer loadPreferencias(){
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+        String carnet = sharedPreferences.getString("USUARIO","0");
+        helper.abrir();
+        int id= helper.recuperarIdEstudiante(carnet);
+        helper.cerrar();
+        return id;
     }
 }

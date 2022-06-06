@@ -128,7 +128,9 @@ public class AgregarBitacoraFragment extends Fragment {
         dt=new DT();
         helper.abrir();
         dt=helper.activo();
-        Integer idEstudianteProyecto = Integer.valueOf(dt.getIdU());
+
+
+            Integer idEstudianteProyecto = Integer.valueOf(dt.getIdU());
             Bitacora bitacora = new Bitacora();
             bitacora.setIdEstudianteProyecto(idEstudianteProyecto);
             bitacora.setCiclo(ciclo);

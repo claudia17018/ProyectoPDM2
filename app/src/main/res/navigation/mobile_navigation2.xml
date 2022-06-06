@@ -69,7 +69,7 @@
             android:id="@+id/action_carrerasFragment_to_crearCarreraFragment"
             app:destination="@id/crearCarreraFragment" />
     </fragment>
-    <fragment
+   <!-- <fragment
         android:id="@+id/cerrarSesionFragment"
         android:name="com.example.proyectopdm.CerrarSesionFragment"
         android:label="@string/menu_cerrarsesion"
@@ -77,7 +77,7 @@
         <action
             android:id="@+id/action_cerrarSesionFragment_to_nav_inicio"
             app:destination="@id/nav_inicio" />
-    </fragment>
+    </fragment>-->
     <fragment
         android:id="@+id/proyectosAsignadosFragment"
         android:name="com.example.proyectopdm.ProyectosAsignadosFragment"
@@ -187,7 +187,7 @@
     </fragment>
     <fragment
         android:id="@+id/crearResumenServicioFragment"
-        android:name="com.example.proyectopdm.fragmentR.CrearResumenServicioFragment"
+        android:name="com.example.proyectopdm.fragmentR.ResumenCrearFragment"
         android:label="Crear Resumen servicio social"
         tools:layout="@layout/fragment_crear_resumen_servicio" />
     <fragment
@@ -253,4 +253,14 @@
         android:name="com.example.proyectopdm.EditarProyectoFragment"
         android:label="@string/ep"
         tools:layout="@layout/fragment_editar_proyecto" />
+    <activity
+        android:id="@+id/logoutActivity"
+        android:name="com.example.proyectopdm.LogoutActivity"
+        android:label="activity_logout"
+        tools:layout="@layout/activity_logout" />
+    <fragment
+        android:id="@+id/crearDetalleServicioFragment"
+        android:name="com.example.proyectopdm.fragmentR.CrearDetalleServicioFragment"
+        android:label="fragment_crear_resumen_servicio"
+        tools:layout="@layout/fragment_crear_resumen_servicio" />
 </navigation>

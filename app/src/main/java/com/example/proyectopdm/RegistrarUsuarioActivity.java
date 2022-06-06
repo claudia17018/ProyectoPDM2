@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.proyectopdm.bd.BD;
 import com.example.proyectopdm.docente.Estudiante;
+import com.example.proyectopdm.entidades.EstudianteProyecto;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class RegistrarUsuarioActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,7 +37,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements View.
         txtDui = (TextInputEditText) findViewById(R.id.textDuiEstudianteF);
         txtDomicilio = (TextInputEditText) findViewById(R.id.textDomicilioEstudianteF);
         txtNit = (TextInputEditText) findViewById(R.id.textNitEstudianteF);
-        usuario=(TextInputEditText) findViewById(R.id.textEmailEstudianteF);
+        usuario=(TextInputEditText) findViewById(R.id.textCarnetAlumnoF);
         contraseña=(TextInputEditText) findViewById(R.id.textPassUsuarioF);
         btnRegistro=(Button) findViewById(R.id.btnRegister);
         //Base de datos
@@ -67,11 +68,18 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements View.
                 estudiante.setDomicilioEstudiante(txtDomicilio.getText().toString());
                 estudiante.setNitEstudiante(txtNit.getText().toString());
 
+                EstudianteProyecto estudianteProyecto = new EstudianteProyecto();
+                estudianteProyecto.setCarnet(txtCarnet.getText().toString());
+
                 if(!us.isNull()||!estudiante.isNull()){
                     //Mensaje
                     Toast.makeText(this, "ERROR: Campos vacios", Toast.LENGTH_SHORT).show();
                 }else if(db.insertUsuario(us)){
+                    System.out.println(estudianteProyecto);
                     db.insertarEstudiante(estudiante);
+                    String r =  db.insertarEP(estudianteProyecto);
+                    //Toast.makeText(this, "Registro exitoso" +r, Toast.LENGTH_SHORT).show();
+
                     Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                     Intent i2=new Intent(RegistrarUsuarioActivity.this,MainActivity.class);
                     startActivity(i2);

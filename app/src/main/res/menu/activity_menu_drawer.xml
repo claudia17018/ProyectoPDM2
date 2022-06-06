@@ -57,8 +57,13 @@
             android:icon="@drawable/ic_baseline_asignados"
             android:title="@string/menu_proyectosAsigandos" />-->
         <item
-            android:id="@+id/cerrarSesionFragment"
+            android:id="@+id/logoutActivity"
             android:icon="@drawable/ic_baseline_salir"
             android:title="@string/menu_cerrarsesion" />
+
+        <!--<item
+            android:id="@+id/cerrarSesionFragment"
+            android:icon="@drawable/ic_baseline_salir"
+            android:title="@string/menu_cerrarsesion" />-->
     </group>
 </menu>

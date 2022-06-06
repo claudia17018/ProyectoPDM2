@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int RC_SIGN_IN = 1000;
     GoogleSignInOptions gso;
     TextView register;
+    String u;
     SpannableString spannableString;
     String texto="No tienes una cuenta Registrate";
     GoogleSignInClient gsc;
@@ -84,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         db.abrir();
         db.llenarDB();
         db.cerrar();
-
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.web_app_client_id))
                 .requestEmail()
@@ -147,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Definicion de comportamiento de los botones
              case R.id.btnIngresar:
                  db.abrir();
-                String u=user.getText().toString();
+                u=user.getText().toString();
                 String p=pass.getText().toString();
                 if(u.equals("")||p.equals("")){
                     Toast.makeText(this, "ERROR: Campos vacios", Toast.LENGTH_SHORT).show();
@@ -157,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dt=new DT();
                     dt.setIdU(us.getId());
                     db.insertarDT(dt);
+                    guardarPrefencias(u);
 
                     if(db.consultarNivelAcceso(dt.getIdU())==1||db.consultarNivelAcceso(dt.getIdU())==2){
                         Toast.makeText(this, "DATOS CORRECTOS", Toast.LENGTH_SHORT).show();
@@ -174,6 +177,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     user.setText("");
                     pass.setText("");
+
+
                 db.cerrar();
                 }else{
                     Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_SHORT).show();
@@ -185,4 +190,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void guardarPrefencias(String valor) {
+        SharedPreferences sharedPreferences = getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("USUARIO",valor);
+        editor.clear().apply();
+        editor.apply();
+        if (valor != null && !valor.isEmpty() && !valor.equals("null")) {
+            Toast.makeText(this, "Datos guardados", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Datos eliminados.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
