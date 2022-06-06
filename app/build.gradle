@@ -60,6 +60,8 @@ dependencies {
 
 
     implementation 'com.tom-roush:pdfbox-android:1.8.10.3'
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     //implementation 'es.voghdev.pdfviewpager:library:1.1.2'
 

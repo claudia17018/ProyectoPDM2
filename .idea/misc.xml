@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/D. Law/Desktop/PDMGIT/PDM2/ProyectoPDM2/app/src/main/res/layout/activity_pdf.xml" value="0.16802536231884058" />
         <entry key="..\:/Users/DELL/Desktop/New folder/PDM1/app/src/main/res/drawable/ic_baseline_more.xml" value="0.183" />
         <entry key="..\:/Users/DELL/Desktop/New folder/PDM1/app/src/main/res/drawable/ic_delete.xml" value="0.183" />
         <entry key="..\:/Users/DELL/Desktop/New folder/PDM1/app/src/main/res/drawable/ic_edit.xml" value="0.183" />
@@ -75,6 +76,9 @@
         <entry key="..\:/Users/mayno/Escritorio/Prueba/ProyectoPDM/app/src/main/res/menu/menu_opciones.xml" value="0.20416666666666666" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/98661-services.json" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
