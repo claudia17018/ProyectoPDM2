@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ProyectoPDM</string>
     <string name="title_activity_menu_opciones">MenuOpcionesActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -137,6 +137,19 @@
 
     <string name="fechaApertura">Fecha de apertura</string>
     <string name="carnetEstudianteAp">Carnet</string>
+
+    <string name="NEWS_CHANNEL_ID" tools:ignore="MissingTranslation">news</string>
+    <string name="CHANNEL_NEWS" tools:ignore="MissingTranslation">News</string>
+    <string name="CHANNEL_DESCRIPTION" tools:ignore="MissingTranslation">Get informed with new updates</string>
+    <string name="title_activity_camara2">Camara2_Activity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
 </resources>

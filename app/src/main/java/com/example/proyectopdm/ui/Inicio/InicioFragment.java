@@ -78,7 +78,7 @@ public class InicioFragment extends Fragment {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.camaraFragment);
+                Navigation.findNavController(v).navigate(R.id.camaraFinalActivity);
             }
         });
 

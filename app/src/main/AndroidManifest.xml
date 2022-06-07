@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
-    <queries></queries>
+    <queries />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPDM.NoActionBar">
         <activity
+            android:name=".CamaraFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Camara2_Activity"
+            android:exported="false"
+            android:label="@string/title_activity_camara2"
+            android:theme="@style/Theme.ProyectoPDM.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".PdfActivity"
             android:exported="true">
             <intent-filter>
@@ -24,7 +35,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MenuOpciones2Activity"
@@ -53,9 +63,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

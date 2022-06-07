@@ -278,4 +278,9 @@
         android:name="com.example.proyectopdm.PdfActivity"
         android:label="activity_pdf"
         tools:layout="@layout/activity_pdf" />
+    <activity
+        android:id="@+id/camaraFinalActivity"
+        android:name="com.example.proyectopdm.CamaraFinalActivity"
+        android:label="activity_camara_final"
+        tools:layout="@layout/activity_camara_final" />
 </navigation>

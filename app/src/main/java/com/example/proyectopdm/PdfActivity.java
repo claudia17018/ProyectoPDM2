@@ -73,8 +73,6 @@ public class PdfActivity extends AppCompatActivity {
         },5000);
     }
 
-
-
 }
 
 
