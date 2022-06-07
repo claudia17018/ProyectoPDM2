@@ -56,10 +56,12 @@ public class TemplatePDF {
 
     private void createFile(){
         File folder =new File(Environment.getExternalStorageDirectory().toString(),"ControlServicioSocial");
-        if(!folder.exists()){
-            folder.mkdir();
+        if(folder.exists()){
+        }else{
 
         }
+
+        folder.mkdir();
         pdfFile=new File(folder,"resumenPDF.pdf");
     }
     public void closeDocument(){

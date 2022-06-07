@@ -20,6 +20,8 @@ import com.example.proyectopdm.entidades.GMailSender;
 public class javaEmailActivity extends AppCompatActivity {
 
     EditText mRecipient,mSubject,mMessage;
+    EditText myEmail;
+    EditText myPassword;
     Button sendEmail;
 
     @Override
@@ -27,7 +29,8 @@ public class javaEmailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_java_email);
 
-
+        myEmail=(EditText)findViewById(R.id.myEmail);
+        myPassword=(EditText)findViewById(R.id.myPassword);
         mRecipient=findViewById(R.id.recepintid);
         mSubject=findViewById(R.id.subject);
         mMessage=findViewById(R.id.messageet);
@@ -35,29 +38,41 @@ public class javaEmailActivity extends AppCompatActivity {
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sender=myEmail.getText().toString();
+                String senderPass=myPassword.getText().toString();
                 String recipient = mRecipient.getText().toString().trim();
                 String subject = mSubject.getText().toString().trim();
                 String message = mMessage.getText().toString().trim();
-                sendEmail(recipient, subject ,message);
+                sendEmail(sender,senderPass,recipient, subject ,message);
                 limpiarInput();
             }
         });
     }
 
 
-    private void sendEmail(String recipient, String subject, String message) {
-        Intent mEmailIntent = new Intent(Intent.ACTION_SEND);
-        mEmailIntent.setData(Uri.parse("mail to:"));
-        mEmailIntent.setType("text/plain");
-        mEmailIntent.putExtra(Intent.EXTRA_EMAIL,new String[]{recipient});
-        mEmailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        mEmailIntent.putExtra(Intent.EXTRA_TEXT, message);;
-        try {
-            startActivity(Intent.createChooser(mEmailIntent,"Elegir un cliente de correo electrónico"));
-        }
-        catch (Exception e){
-            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
+    private void sendEmail(final String Sender,final String Password,final String recipient, final String subject, final String message) {
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    GMailSender sender = new GMailSender(Sender,Password);
+                    sender.sendMail(subject, "<b>"+message+"</b>", Sender, recipient);
+                    makeAlert();
+
+                } catch (Exception e) {
+                    Log.e("SendMail", e.getMessage(), e);
+                }
+            }
+
+        }).start();
+    }
+    private void makeAlert(){
+        this.runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(javaEmailActivity.this, "Mail Sent", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void limpiarInput(){

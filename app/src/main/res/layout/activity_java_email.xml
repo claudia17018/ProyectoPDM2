@@ -7,18 +7,30 @@
     tools:context=".javaEmailActivity"
     android:orientation="vertical">
 
-    <TextView
+
+
+
+
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Envia tu Email"
-        android:gravity="center"
-        android:textSize="26dp"
-        android:layout_margin="16dp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:hint="Your Gmail Address"
+        android:id="@+id/myEmail"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
         android:inputType="textEmailAddress"
         >
-    </TextView>
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Gmail Password"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:id="@+id/myPassword"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"/>
 
     <EditText
         android:id="@+id/recepintid"
