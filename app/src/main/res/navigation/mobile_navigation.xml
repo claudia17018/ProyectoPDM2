@@ -289,6 +289,11 @@
         android:label="activity_pdf"
         tools:layout="@layout/activity_pdf" />
     <activity
+        android:id="@+id/myProfile"
+        android:name="com.example.proyectopdm.MyProfile"
+        android:label="Mi Perfil"
+        tools:layout="@layout/activity_my_profile" />
+    <activity
         android:id="@+id/abrirPdfActivity"
         android:name="com.example.proyectopdm.AbrirPdfActivity"
         android:label="activity_abrir_pdf"
