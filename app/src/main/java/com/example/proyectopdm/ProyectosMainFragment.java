@@ -1,5 +1,7 @@
 package com.example.proyectopdm;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -34,8 +36,8 @@ public class ProyectosMainFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-
+    BD helper;
+    int idEP;
     ArrayList<Proyecto> listadoProyecto;
     BD.DataBaseHelper dataBaseHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -81,7 +83,7 @@ public class ProyectosMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_proyectos_main, container, false);
-
+        helper = new BD(getContext());
         dataBaseHelper = new BD.DataBaseHelper(getContext());
         listadoProyecto = new ArrayList<>();
         recyclerView = (RecyclerView) vista.findViewById(R.id.recyclerViewListProyecto);
@@ -95,8 +97,10 @@ public class ProyectosMainFragment extends Fragment {
 
     private ArrayList<Proyecto> consultarListadoProyecto() {
         sqLiteDatabase = dataBaseHelper.getReadableDatabase();
-
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM PROYECTO",null);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+        String carnet = sharedPreferences.getString("USUARIO","0");
+        String []est = {carnet};
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM PROYECTO WHERE DUITUTOR=?",est);
         ArrayList<Proyecto> listadoProyecto = new ArrayList<>();
 
         if (cursor.moveToFirst()) {
@@ -128,4 +132,5 @@ public class ProyectosMainFragment extends Fragment {
 
 
     }
+
 }

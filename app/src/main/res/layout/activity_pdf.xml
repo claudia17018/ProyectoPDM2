@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PdfActivity"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardInicioPez"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#533C57"
+        app:cardCornerRadius="8dp"
+
+        tools:ignore="MissingConstraints">
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_gravity="left"
+            android:layout_margin="30dp"
+
+            android:src="@drawable/ic_baseline_pdf" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:onClick="pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+
+        android:textAlignment="center"
+
+        android:text="Ver PDF" />
+
+
+
+</LinearLayout>

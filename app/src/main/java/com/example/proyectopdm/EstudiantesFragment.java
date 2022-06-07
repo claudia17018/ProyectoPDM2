@@ -1,5 +1,7 @@
 package com.example.proyectopdm;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -140,7 +142,10 @@ public class EstudiantesFragment extends Fragment {
     }
     private ArrayList<Estudiante> consultarListaEstudiantes(){
         sqLiteDatabase = dataBaseHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM ESTUDIANTE", null);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Usuario", Context.MODE_PRIVATE);
+        String carnet = sharedPreferences.getString("USUARIO","0");
+        String []est = {carnet};
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM ESTUDIANTE WHERE CARNET=?",est);
         ArrayList<Estudiante> listadoEstudiante = new ArrayList<>();
 
         if(cursor.moveToFirst()){

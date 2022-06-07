@@ -49,7 +49,7 @@ public class MenuOpcionesActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_inicio, R.id.nav_miperfil, R.id.nav_proyectos,R.id.estudiantesFragment,
                 R.id.miServicioSocialFragment, R.id.recordAcademicoFragment,R.id.cerrarSesionFragment,
-                R.id.docentesFragment,R.id.carrerasFragment,R.id.modalidadesFragment,
+                R.id.docentesFragment,R.id.proyectosMainFragment,R.id.carrerasFragment,R.id.modalidadesFragment,
                 R.id.proyectosAsignadosFragment,R.id.resumenServicioSocialFragment,R.id.crearCarreraFragment,R.id.javaEmailActivity,R.id.calendarFragment)
                 .setOpenableLayout(drawer)
                 .build();
@@ -80,7 +80,7 @@ public class MenuOpcionesActivity extends AppCompatActivity {
         db.abrir();
         dt=db.activo();
 
-        usuario.setText(db.obtenerNombreDocente(dt.getIdU()));
+        usuario.setText(db.obtenerNombreEstudiante(dt.getIdU()));
         db.cerrar();
 
 

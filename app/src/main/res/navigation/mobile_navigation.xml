@@ -241,7 +241,7 @@
     <fragment
         android:id="@+id/crearProyectoFragment"
         android:name="com.example.proyectopdm.CrearProyectoFragment"
-        android:label="cp"
+        android:label="@string/cp"
         tools:layout="@layout/fragment_crear_proyecto" />
     <fragment
         android:id="@+id/editarEstudianteFragment"
@@ -256,7 +256,7 @@
         <fragment
         android:id="@+id/resumenCrearFragment"
         android:name="com.example.proyectopdm.fragmentR.ResumenCrearFragment"
-        android:label="fragment_resumen_crear"
+        android:label="Crear Resumen"
         tools:layout="@layout/fragment_resumen_crear" />
     <fragment
         android:id="@+id/editarDetalleFragment"
@@ -271,7 +271,7 @@
     <activity
         android:id="@+id/javaEmailActivity"
         android:name="com.example.proyectopdm.javaEmailActivity"
-        android:label="activity_java_email"
+        android:label="Java email"
         tools:layout="@layout/activity_java_email" />
     <activity
         android:id="@+id/customPrintActivity"
@@ -283,4 +283,14 @@
         android:name="com.example.proyectopdm.fragmentR.CalendarFragment"
         android:label="@string/menu_act"
         tools:layout="@layout/fragment_calendar" />
+    <activity
+        android:id="@+id/pdfActivity"
+        android:name="com.example.proyectopdm.PdfActivity"
+        android:label="activity_pdf"
+        tools:layout="@layout/activity_pdf" />
+    <activity
+        android:id="@+id/abrirPdfActivity"
+        android:name="com.example.proyectopdm.AbrirPdfActivity"
+        android:label="activity_abrir_pdf"
+        tools:layout="@layout/activity_abrir_pdf" />
 </navigation>

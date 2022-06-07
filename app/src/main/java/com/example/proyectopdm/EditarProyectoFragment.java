@@ -121,8 +121,8 @@ public class EditarProyectoFragment extends Fragment {
         ArrayAdapter<CharSequence> adapter9 = ArrayAdapter.createFromResource(getContext(),R.array.op_modalidad, android.R.layout.simple_spinner_item);
         listaModalidad.setAdapter(adapter9);
 
-        ArrayAdapter<String> adapter11=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,listaA);
-        listDocentes.setAdapter(adapter11);
+        //ArrayAdapter<String> adapter11=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,listaA);
+        //listDocentes.setAdapter(adapter11);
 
 
 
@@ -151,6 +151,7 @@ public class EditarProyectoFragment extends Fragment {
             txthoras.setText(String.valueOf(carrera.getNumHoras()));
             txtestudiantes.setText(String.valueOf(carrera.getNumEst()));
             txtEstado.setText(String.valueOf(carrera.getEstadoPro()));
+            listDocentes.setText(String.valueOf(carrera.getDuiTu()));
 
             //listCategorias.setText("");
             //listaModalidad.setText("");
@@ -171,15 +172,15 @@ public class EditarProyectoFragment extends Fragment {
                     carrera.setNumEst(Integer.valueOf(txtestudiantes.getText().toString()));
                     carrera.setNumHoras(Integer.valueOf(txthoras.getText().toString()));
 
-                   carrera.setLugar(txtlugar.getText().toString());
+                    carrera.setLugar(txtlugar.getText().toString());
                     carrera.setRespoIns(txtencargado.getText().toString());
                     carrera.setEstadoPro(txtEstado.getText().toString());
 
-                    String docenteid = helper.consultarDuiDocente(listDocentes.getText().toString());
+                   // String docenteid = helper.consultarDuiDocente(listDocentes.getText().toString());
                     int categoriaid = helper.consultarIdCategoria(listCategorias.getText().toString());
                     int modalidadid = helper.consultarIdModalidad(listaModalidad.getText().toString());
 
-                    carrera.setDuiTu(docenteid);
+                    carrera.setDuiTu(listDocentes.getText().toString());
                     carrera.setIdMod(modalidadid);
                     carrera.setIdCat(categoriaid);
 

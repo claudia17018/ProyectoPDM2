@@ -161,7 +161,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     db.insertarDT(dt);
                     guardarPrefencias(u);
 
-                    if(db.consultarNivelAcceso(dt.getIdU())==1||db.consultarNivelAcceso(dt.getIdU())==2){
+
+                    Toast.makeText(this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
+                    Intent i3=new Intent(MainActivity.this,MenuOpcionesActivity.class);
+                    // Pasando el id del usuario
+                    i3.putExtra("id",us.getId());
+                    startActivity(i3);
+                   /* if(db.consultarNivelAcceso(dt.getIdU())==1||db.consultarNivelAcceso(dt.getIdU())==2){
                         Toast.makeText(this, "DATOS CORRECTOS", Toast.LENGTH_SHORT).show();
                         Intent i3=new Intent(MainActivity.this,MenuOpcionesActivity.class);
                         // Pasando el id del usuario
@@ -173,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // Pasando el id del usuario
                         i9.putExtra("id",us.getId());
                         startActivity(i9);
-                    }
+                    }*/
 
                     user.setText("");
                     pass.setText("");

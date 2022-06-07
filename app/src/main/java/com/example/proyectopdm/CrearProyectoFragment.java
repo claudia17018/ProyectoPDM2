@@ -120,8 +120,8 @@ public class CrearProyectoFragment extends Fragment {
         ArrayAdapter<CharSequence> adapter9 = ArrayAdapter.createFromResource(getContext(),R.array.op_modalidad, android.R.layout.simple_spinner_item);
         listaModalidad.setAdapter(adapter9);
 
-         ArrayAdapter<String> adapter11=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,listaA);
-        listDocentes.setAdapter(adapter11);
+       //  ArrayAdapter<String> adapter11=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,listaA);
+        //listDocentes.setAdapter(adapter11);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,11 +154,11 @@ public class CrearProyectoFragment extends Fragment {
         pro.setRespoIns(txtencargado.getText().toString());
         pro.setEstadoPro(txtEstado.getText().toString());
 
-        String docenteid = helper.consultarDuiDocente(listDocentes.getText().toString());
+        //String docenteid = helper.consultarDuiDocente(listDocentes.getText().toString());
         int categoriaid = helper.consultarIdCategoria(listCategorias.getText().toString());
         int modalidadid = helper.consultarIdModalidad(listaModalidad.getText().toString());
 
-        pro.setDuiTu(docenteid);
+        pro.setDuiTu(listDocentes.getText().toString());
         pro.setIdMod(modalidadid);
         pro.setIdCat(categoriaid);
 

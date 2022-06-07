@@ -55,7 +55,7 @@ public class AdaptadorProyecto extends  RecyclerView.Adapter<AdaptadorProyecto.P
         TextView nom, moda, tutor,numE,numH,lugar,des,cat,estado;
         holder.nom.setText(String.valueOf(listadoProyecto.get(position).getNomPro()));
         holder.moda.setText(String.valueOf(helper.consultarModalidad(listadoProyecto.get(position).getIdMod())));
-        holder.tutor.setText(String.valueOf(helper.consultarDocente(listadoProyecto.get(position).getDuiTu())));
+        holder.tutor.setText(String.valueOf(listadoProyecto.get(position).getDuiTu()));
         holder.numE.setText(String.valueOf(listadoProyecto.get(position).getNumEst()));
         holder.numH.setText(String.valueOf(listadoProyecto.get(position).getNumHoras()));
         holder.lugar.setText(String.valueOf(listadoProyecto.get(position).getLugar()));

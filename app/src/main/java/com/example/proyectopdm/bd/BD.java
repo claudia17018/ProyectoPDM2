@@ -3,6 +3,7 @@ package com.example.proyectopdm.bd;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -181,7 +182,6 @@ public class BD {
                         "   IDESTUDIANTEPROYECTO INTEGER              not null,\n" +
                         "   CARNET               CHAR(10),\n" +
                         "   IDPROYECTO           INTEGER,\n" +
-                        "   IDDETALLERESUMEN     INTEGER,\n" +
                         "   NUMEROTOTALHORASTRABAJADAS INTEGER              not null,\n" +
                         "   constraint PK_ESTUDIANTEPROYECTO primary key (IDESTUDIANTEPROYECTO)\n" +
                         ")");
@@ -329,15 +329,21 @@ public class BD {
     public void llenarDB(){
 
         /*************Usuario*********************/
-        final String[] VUnombre = {"Admin","Daniel","Roxana","Luis"};
-        final String[] VUclave ={"1","1","1","1"};
+        final String[] VUnombre = {"ML17025","LP13022"};
+        final String[] VUclave ={"1","1"};
 
         /*************Bitacora*********************/
         final int[] bCiclo={1,1,1,1};
         final int[] bid={1,2,1,2};
         final String[] bMes={"Junio","Junio","Junio","Junio"};
         final int[] banio={2022,2022,2022,2022};
-        final int[] bsp={1,1,1,1};
+        final int[] bsp={1,1,2,2};
+
+        /*************Estudiante Pro*********************/
+
+
+        final String[] epCarner={"ML17025","LP13022"};
+
 
         /*************Actividad*********************/
         final int[] aid={1,2,3,4};
@@ -375,7 +381,7 @@ public class BD {
 
 
         /*************Estudiante ****************/
-        final int[] eIdUsuario={3,4};
+        final int[] eIdUsuario={1,2};
         final String[] eCarne={"ML17025","LP13022"};
         final String[] eNom={"Roxana","Luis"};
         final String[] eApe={"Mendoza","Flores"};
@@ -386,12 +392,12 @@ public class BD {
         final String[] eDo={"San Salvador","Apopa"};
 
         /*************AccesoUsuario ****************/
-        final int[] auIdop={1,2,3,3};
-        final int[] auIus={1,2,3,4};
+        final int[] auIdop={1,2};
+        final int[] auIus={1,2};
 
         /*************Total ****************/
 
-        final String[] dtCarnet={"AB17018","ML17018"};
+        final String[] dtCarnet={"ML17025","LP13022"};
         final String[] dtDuiTu={"5454548484","5454548484"};
         final int[] dtId={1,2};
         final String[] dtFechaA={"01/01/22","05/02/22"};
@@ -431,7 +437,7 @@ public class BD {
 
 
         final int[] proMo={1,2};
-        final String[] proDui={"5454548484","5454548484"};
+        final String[] proDui={"ML17025","LP13022"};
         final int[] proIdca={1,3};
         final String[] proNo={"Desarrollo de sistema medico","Desarrollo de sistema inventario"};
         final String[] proDes={"Se necesita un sistema para llevar un mejor control de los pacientes","El sistema debe de facilitar el control de los recursos con los que se cuenta"};
@@ -453,7 +459,7 @@ public class BD {
 
 
             Usuario us = new Usuario();
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 2; i++) {
                 us.setUsuario(VUnombre[i]);
                 us.setContraseña(VUclave[i]);
                 insertUsuario(us);
@@ -475,7 +481,7 @@ public class BD {
                 insertarAreaCarrera(a);
             }
 
-            Docente doce = new Docente();
+           /* Docente doce = new Docente();
             for (int i = 0; i < 2; i++) {
 
                 doce.setIdUsuario(dIdUsuario[i]);
@@ -486,7 +492,7 @@ public class BD {
                 doce.setEmailTutor(dEma[i]);
                 doce.setTelefonoTutor(dTel[i]);
                 insertar(doce);
-            }
+            }*/
             Estudiante estu = new Estudiante();
             for (int i = 0; i < 2; i++) {
 
@@ -500,11 +506,11 @@ public class BD {
                 estu.setNitEstudiante(eNit[i]);
                 estu.setCarnet(eCarne[i]);
 
-                insertarEstudiante(estu);
+                insertarEstudiante2(estu);
             }
 
             AccesoUsuario au = new AccesoUsuario();
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 2; i++) {
                 au.setIdOpcion(auIdop[i]);
                 au.setIdUsuario(auIus[i]);
                 insertarAccesoUsuario(au);
@@ -566,6 +572,13 @@ public class BD {
                 bitacora.setAnio(banio[i]);
                 bitacora.setMes(bMes[i]);
                 insertarBitacora(bitacora);
+            }
+
+            EstudianteProyecto estudiantePro=new EstudianteProyecto();
+            for(int i=0;i<2;i++){
+                estudiantePro.setCarnet(epCarner[i]);
+                insertarEP(estudiantePro);
+
             }
 
             Actividad actividad = new Actividad();
@@ -796,6 +809,37 @@ public class BD {
 
         estu.put("CARNET", estudiante.getCarnet());
         estu.put("IDUSUARIO",idUltimoUsuario);
+        estu.put("NOMBREESTUDIANTE", estudiante.getNombreEstudiante());
+        estu.put("APELLIDOESTUDIANTE", estudiante.getApellidoEstudiante());
+        estu.put("TELEFONO", estudiante.getTelefono());
+        estu.put("EMAIL", estudiante.getEmailEstudinate());
+        estu.put("DUI", estudiante.getDuiEstudiante());
+        estu.put("DOMICILIO", estudiante.getDomicilioEstudiante());
+        estu.put("NITESTUDIANTE", estudiante.getNitEstudiante());
+
+        contador=db.insert("ESTUDIANTE",null, estu);
+
+        if(contador == -1 || contador ==0){
+            regInsertados = "Error al insertar registro, Registro duplicado. Verificar insercion";
+        }else{
+            regInsertados=regInsertados+contador;
+        }
+
+        return regInsertados;
+    }
+
+
+    public String insertarEstudiante2(Estudiante estudiante){
+        String regInsertados = "Registro Insertado N°= ";
+        long contador;
+        int idUltimoUsuario=0;
+
+        ContentValues estu = new ContentValues();
+
+
+
+        estu.put("CARNET", estudiante.getCarnet());
+        estu.put("IDUSUARIO",estudiante.getIdUsuario());
         estu.put("NOMBREESTUDIANTE", estudiante.getNombreEstudiante());
         estu.put("APELLIDOESTUDIANTE", estudiante.getApellidoEstudiante());
         estu.put("TELEFONO", estudiante.getTelefono());
@@ -1545,6 +1589,66 @@ public class BD {
         db.update("DETALLERESUMENSERVICIO",contentValues,"IDDETALLERESUMEN = ? ",id);
 
         return "Registros actualizados correctamente";
+    }
+
+/******************* PDF ***************************************/
+/*
+public ArrayList<Bitacora> consultarListadoBitacora2(String carnet) {
+    int idEP =0;
+    idEP=recuperarIdEstudiante(carnet);
+    String[] idEPr= {String.valueOf(idEP)};
+    Cursor cursor = db.rawQuery("SELECT * FROM BITACORA WHERE IDESTUDIANTEPROYECTO =?",idEPr);
+    ArrayList<Bitacora> listadoBitacora = new ArrayList<>();
+
+    if (cursor.moveToFirst()) {
+        do {
+            listadoBitacora.add(new Bitacora(cursor.getInt(0), cursor.getInt(2),cursor.getString(3),cursor.getInt(4)));
+        } while (cursor.moveToNext());
+
+    }
+    cursor.close();
+    return listadoBitacora;
+}*/
+
+
+
+public ArrayList<Bitacora> consultarBi(String carnet) {
+
+
+    Cursor cursor = db.rawQuery("SELECT * FROM BITACORA",null);
+    ArrayList<Bitacora> listadoBitacora = new ArrayList<>();
+    int id=recuperarIdEstudiante(carnet);
+    if (cursor.moveToFirst()) {
+        do {
+            if(cursor.getInt(1)==id) {
+                listadoBitacora.add(new Bitacora(cursor.getInt(0), cursor.getInt(2), cursor.getString(3), cursor.getInt(4)));
+            }
+        } while (cursor.moveToNext());
+
+    }
+    cursor.close();
+    return listadoBitacora;
+}
+
+    public ArrayList<Actividad> consultarActividad(int bitacora) {
+        String[] id= {String.valueOf(bitacora)};
+
+        Cursor cursor = db.rawQuery("Select a.IDACTIVIDAD, a.NOMBREACTIVIDAD,a.DESCRIPCIONTIPOACTIVIDAD, a.FECHAACTIVIDAD, a.NUMHORASACTIVIDAD from DETALLEBITACORA as d\n" +
+                "INNER JOIN ACTIVIDAD as a\n" +
+                "ON d.IDACTIVIDAD = a.IDACTIVIDAD\n" +
+                "INNER JOIN BITACORA as b\n" +
+                "ON d.IDBITACORA = b.IDBITACORA\n" +
+                "WHERE d.IDBITACORA = ?", id);
+        ArrayList<Actividad> listadoActividad = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                listadoActividad.add(new Actividad(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getInt(4)));
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        return listadoActividad;
     }
 
 }
