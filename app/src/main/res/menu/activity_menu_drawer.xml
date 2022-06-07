@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_baseline_folder"
             android:title="@string/menu_proyectos" />-->
         <item
+            android:id="@+id/myProfile"
+            android:icon="@drawable/ic_estudiantes"
+            android:title="@string/menu_miperfil" />
+        <item
             android:id="@+id/proyectosMainFragment"
             android:icon="@drawable/ic_baseline_folder"
             android:title="@string/menu_proyectos" />

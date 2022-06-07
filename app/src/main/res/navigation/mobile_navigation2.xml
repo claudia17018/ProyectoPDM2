@@ -263,4 +263,9 @@
         android:name="com.example.proyectopdm.fragmentR.CrearDetalleServicioFragment"
         android:label="fragment_crear_resumen_servicio"
         tools:layout="@layout/fragment_crear_resumen_servicio" />
+    <activity
+        android:id="@+id/myProfile"
+        android:name="com.example.proyectopdm.MyProfile"
+        android:label="Mi Perfil"
+        tools:layout="@layout/activity_my_profile" />
 </navigation>

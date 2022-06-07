@@ -48,7 +48,7 @@ public class MenuOpciones2Activity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_inicio, R.id.nav_miperfil, R.id.nav_proyectos,R.id.estudiantesFragment,R.id.proyectosMainFragment,R.id.miServicioSocialFragment, R.id.recordAcademicoFragment,R.id.cerrarSesionFragment,R.id.docentesFragment,R.id.carrerasFragment,R.id.modalidadesFragment,R.id.proyectosAsignadosFragment,R.id.resumenServicioSocialFragment)
+                R.id.nav_inicio, R.id.myProfile, R.id.nav_proyectos,R.id.estudiantesFragment,R.id.proyectosMainFragment,R.id.miServicioSocialFragment, R.id.recordAcademicoFragment,R.id.cerrarSesionFragment,R.id.docentesFragment,R.id.carrerasFragment,R.id.modalidadesFragment,R.id.proyectosAsignadosFragment,R.id.resumenServicioSocialFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_opciones2);
